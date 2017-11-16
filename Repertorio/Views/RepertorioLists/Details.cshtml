@@ -1,0 +1,42 @@
+﻿@model Repertorio.Models.RepertorioList
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RepertorioList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DsFaixa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DsFaixa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DsArtista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DsArtista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CdDificuldade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CdDificuldade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
