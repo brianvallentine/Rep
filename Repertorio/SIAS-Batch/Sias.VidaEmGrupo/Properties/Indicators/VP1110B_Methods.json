@@ -1,0 +1,489 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 0,
+    "Deletes": 0,
+    "Selects": 6,
+    "Cursors": 2,
+    "Procedures": 0,
+    "All": 8
+  },
+  "MethodDescription": {
+    "ProgramName": "VP1110B",
+    "Quantity": 41,
+    "Methods": [
+      {
+        "EntraceMethod": true,
+        "Lines": 4,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "string VP1110S1_FILE_NAME_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "P1000_PROCEDIMENTOS_INICIAIS",
+          "P1000_FIM",
+          "P2000_PROCEDIMENTOS_PRINCIPAIS",
+          "P2000_FIM",
+          "P9000_PROCEDIMENTOS_FINAIS",
+          "P9000_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 20,
+        "Name": "P1000_PROCEDIMENTOS_INICIAIS",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P1000_PROCEDIMENTOS_INICIAIS_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P1000_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 35,
+        "Name": "P2000_PROCEDIMENTOS_PRINCIPAIS",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P2100_LER_CUR001",
+          "P2100_FIM",
+          "P2200_TRATA_CONTRATO_SIAS",
+          "P2200_FIM",
+          "P2300_LER_CUR002",
+          "P2300_FIM",
+          "P2400_TRATA_CONTRATO_EFP",
+          "P2400_FIM",
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2000_PROCEDIMENTOS_PRINCIPAIS_DB_OPEN_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2000_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2000_PROCEDIMENTOS_PRINCIPAIS_DB_CLOSE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2000_PROCEDIMENTOS_PRINCIPAIS_DB_OPEN_2",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 21,
+        "Name": "P2100_LER_CUR001",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P2110_VERIFICA_RESTITUICAO",
+          "P2110_FIM",
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2100_LER_CUR001_DB_FETCH_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2100_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 18,
+        "Name": "P2110_VERIFICA_RESTITUICAO",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2110_VERIFICA_RESTITUICAO_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2110_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 20,
+        "Name": "P2200_TRATA_CONTRATO_SIAS",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P2210_BUSCA_DADOS_CLIENTE",
+          "P2210_FIM",
+          "P2220_BUSCA_TELEFONE",
+          "P2220_FIM",
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2200_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 18,
+        "Name": "P2210_BUSCA_DADOS_CLIENTE",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2210_BUSCA_DADOS_CLIENTE_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2210_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 18,
+        "Name": "P2220_BUSCA_TELEFONE",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2220_BUSCA_TELEFONE_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2220_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 20,
+        "Name": "P2300_LER_CUR002",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2300_LER_CUR002_DB_FETCH_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2300_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 21,
+        "Name": "P2400_TRATA_CONTRATO_EFP",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P2410_BUSCA_GEPESSOA",
+          "P2410_FIM",
+          "P2420_BUSCA_CPF",
+          "P2420_FIM",
+          "P2430_BUSCA_TELEFONE",
+          "P2430_FIM",
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2400_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 17,
+        "Name": "P2410_BUSCA_GEPESSOA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2410_BUSCA_GEPESSOA_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2410_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 17,
+        "Name": "P2420_BUSCA_CPF",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2420_BUSCA_CPF_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2420_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 17,
+        "Name": "P2430_BUSCA_TELEFONE",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2430_BUSCA_TELEFONE_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2430_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 19,
+        "Name": "P9000_PROCEDIMENTOS_FINAIS",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_ERRO_SQL",
+          "P9999_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P9000_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 19,
+        "Name": "P9999_ERRO_SQL",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 0,
+        "Name": "P9999_FIM",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "DclDescription": {
+    "Quantity": 20,
+    "Names": [
+      "PROPOVA",
+      "CLIENTES",
+      "PROPOFID",
+      "PESFONE",
+      "EF025",
+      "EF050",
+      "EF060",
+      "EF063",
+      "EF066",
+      "EF072",
+      "EF079",
+      "EF080",
+      "EF150",
+      "GEPESFIS",
+      "GEPESJUR",
+      "GEPESSOA",
+      "GEPESTEL",
+      "RELATORI",
+      "CUR001",
+      "CUR002"
+    ]
+  },
+  "FilesDescription": {
+    "Quantity": 1,
+    "Names": [
+      "VP1110S10"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT data_calendario\nFROM seguros.calendario\n \nwhere data_calendario   =  :DATA_CALENDARIO\n  and dia_semana    not in ('S','D')\n  and feriado           =  ' '\n/\n END SQL", "Inputs": [{"Field": ":DATA_CALENDARIO", "Type": "string"}], "Outputs": [{"Field": "data_calendario", "Type": "string"}], "Endpoint": "sixba/SIXBPB040"}

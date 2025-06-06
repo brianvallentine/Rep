@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0coberpropva T1 SET DTTERVIG = DTTERVIG - 1 DAY WHERE NRCERTIF = :NRCERTIF AND OCORHIST = :OCORHIST END SQL", "Inputs": [{"Field": ":NRCERTIF", "Type": "string"}, {"Field": ":OCORHIST", "Type": "string"}], "Outputs": [], "Endpoint": "vgmoa/vgmop037"}

@@ -1,0 +1,61 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Geral.DB2.GE0853S
+{
+    public class R3000_00_TRATA_1A_2A_PARCELA_DB_INSERT_1_Insert1 : QueryBasis<R3000_00_TRATA_1A_2A_PARCELA_DB_INSERT_1_Insert1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            INSERT INTO SEGUROS.V0DIFPARCELVA
+            VALUES (:V0HISC-NRCERTIF,
+            :WHOST-NRPARCEL-1,
+            :V0HISC-NRPARCEL,
+            :WHOST-CODOPER,
+            :V0PARC-DTVENCTO,
+            :V0COBP-PRMVG,
+            :V0COBP-PRMAP,
+            0,
+            0,
+            :V0COBP-PRMVG,
+            :V0COBP-PRMAP,
+            0,
+            '1' )
+            END-EXEC
+            */
+            #endregion
+            var query = @$"
+				INSERT INTO SEGUROS.V0DIFPARCELVA VALUES ({FieldThreatment(this.V0HISC_NRCERTIF)}, {FieldThreatment(this.WHOST_NRPARCEL_1)}, {FieldThreatment(this.V0HISC_NRPARCEL)}, {FieldThreatment(this.WHOST_CODOPER)}, {FieldThreatment(this.V0PARC_DTVENCTO)}, {FieldThreatment(this.V0COBP_PRMVG)}, {FieldThreatment(this.V0COBP_PRMAP)}, 0, 0, {FieldThreatment(this.V0COBP_PRMVG)}, {FieldThreatment(this.V0COBP_PRMAP)}, 0, '1' )";
+
+            return query;
+        }
+        public string V0HISC_NRCERTIF { get; set; }
+        public string WHOST_NRPARCEL_1 { get; set; }
+        public string V0HISC_NRPARCEL { get; set; }
+        public string WHOST_CODOPER { get; set; }
+        public string V0PARC_DTVENCTO { get; set; }
+        public string V0COBP_PRMVG { get; set; }
+        public string V0COBP_PRMAP { get; set; }
+
+        public static void Execute(R3000_00_TRATA_1A_2A_PARCELA_DB_INSERT_1_Insert1 r3000_00_TRATA_1A_2A_PARCELA_DB_INSERT_1_Insert1)
+        {
+            var ths = r3000_00_TRATA_1A_2A_PARCELA_DB_INSERT_1_Insert1;
+            ths.SetQuery(ths.GetQuery());
+            ths.ExecuteQuery();
+        }
+
+        public override R3000_00_TRATA_1A_2A_PARCELA_DB_INSERT_1_Insert1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
+}

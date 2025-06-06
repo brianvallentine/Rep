@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v1rcapcomp SET sitcontb = '2', timestamp = current timestamp WHERE fonte = :FONTE AND nrrcap = :NRRCAP AND nrrcapco = :NRRCAPCO AND operacao IN (100, 300) END SQL", "Inputs": [{"Field": ":FONTE", "Type": "string"}, {"Field": ":NRRCAP", "Type": "string"}, {"Field": ":NRRCAPCO", "Type": "string"}], "Outputs": [], "Endpoint": "cb5ea/cb5eph9"}

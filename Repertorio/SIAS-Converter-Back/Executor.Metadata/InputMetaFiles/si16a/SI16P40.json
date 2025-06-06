@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT limcrr, OCORHIST FROM seguros.v1histsini WHERE OPERACAO = 1082 AND NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND SITUACAO = '0' END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "limcrr", "Type": "string"}, {"Field": "OCORHIST", "Type": "string"}], "Endpoint": "si16a/si16p40"}

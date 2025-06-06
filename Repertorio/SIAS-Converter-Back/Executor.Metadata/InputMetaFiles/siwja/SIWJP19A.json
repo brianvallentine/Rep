@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(MAX(NUM_SEQ_PLAN),0) FROM seguros.v0sini_planhabit01 WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO WITH UR END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "NUM_SEQ_PLAN", "Type": "string"}], "Endpoint": "siwja/siwjp19a"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DATRDT, sum(VALRDT) FROM seguros.v1rendimento WHERE codpdt = :CODPDT and numrec = :NUMREC GROUP BY datrdt END SQL", "Inputs": [{"Field": ":CODPDT", "Type": "string"}, {"Field": ":NUMREC", "Type": "string"}], "Outputs": [{"Field": "DATRDT", "Type": "string"}], "Endpoint": "va4aa/va4ap205"}

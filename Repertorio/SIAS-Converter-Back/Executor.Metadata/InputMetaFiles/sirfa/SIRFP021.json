@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DATA_seguros.calendario -1 DAYS FROM seguros.calendario WHERE DATA_seguros.calendario = :DATA_seguros.calendario END SQL", "Inputs": [{"Field": ":DATA_seguros.calendario", "Type": "string"}], "Outputs": [{"Field": "DATA_seguros.calendario", "Type": "string"}], "Endpoint": "sirfa/sirfp021"}

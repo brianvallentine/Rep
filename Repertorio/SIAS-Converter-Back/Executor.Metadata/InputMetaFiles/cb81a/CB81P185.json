@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT MAX(NUM_SEQUENCIA)\nFROM seguros.CB_CONTR_DEVPREMIO\n \nWHERE     DATA_MOVIMENTO  =  :DATA_MOVIMENTO\n/\n END SQL", "Inputs": [{"Field": ":DATA_MOVIMENTO", "Type": "string"}], "Outputs": [{"Field": "MAX", "Type": "string"}, {"Field": "NUM_SEQUENCIA", "Type": "string"}], "Endpoint": "cb81a/CB81P185"}

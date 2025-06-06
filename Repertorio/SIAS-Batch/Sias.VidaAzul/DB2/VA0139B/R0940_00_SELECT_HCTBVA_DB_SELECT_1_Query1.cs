@@ -1,0 +1,64 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.VidaAzul.DB2.VA0139B
+{
+    public class R0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1 : QueryBasis<R0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT NRENDOS
+            INTO :V0HCTB-NRENDOS
+            FROM SEGUROS.V0HISTCONTABILVA
+            WHERE NRCERTIF = :V0HCTB-NRCERTIF
+            AND NRPARCEL = :V0HCTB-NRPARCEL
+            AND CODOPER BETWEEN 500 AND 599
+            FETCH FIRST 1 ROWS ONLY
+            WITH UR
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT NRENDOS
+											FROM SEGUROS.V0HISTCONTABILVA
+											WHERE NRCERTIF = '{this.V0HCTB_NRCERTIF}'
+											AND NRPARCEL = '{this.V0HCTB_NRPARCEL}'
+											AND CODOPER BETWEEN 500 AND 599
+											FETCH FIRST 1 ROWS ONLY
+											WITH UR";
+
+            return query;
+        }
+        public string V0HCTB_NRENDOS { get; set; }
+        public string V0HCTB_NRCERTIF { get; set; }
+        public string V0HCTB_NRPARCEL { get; set; }
+
+        public static R0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1 Execute(R0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1 r0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1)
+        {
+            var ths = r0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override R0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new R0940_00_SELECT_HCTBVA_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.V0HCTB_NRENDOS = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

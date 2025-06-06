@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT TIPO_DESTINATARIOCOD_DESTINATARIO\nFROM SEGUROS.GE_DESTINAT_CLASSE\n \nWHERE COD_CLASSE = :COD_CLASSE\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":COD_CLASSE", "Type": "string"}], "Outputs": [{"Field": "TIPO_DESTINATARIO", "Type": "string"}, {"Field": "COD_DESTINATARIO", "Type": "string"}], "Endpoint": "sioba/SIOBP089"}

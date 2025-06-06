@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT NOMEBCONOMEAGE\nFROM seguros.v1banco\n \nWHERE\n  banco = :BANCO      and\n  agencia = :AGENCIA\n/ END SQL", "Inputs": [{"Field": ":BANCO", "Type": "string"}, {"Field": ":AGENCIA", "Type": "string"}], "Outputs": [{"Field": "NOMEBCO", "Type": "string"}, {"Field": "NOMEAGE", "Type": "string"}], "Endpoint": "cb1na/CBINP023"}

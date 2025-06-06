@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.seguros.v0coberapol SET DATA_TERVIGENCIA = :DATA_TERVIGENCIA, TIMESTAMP = CURRENT TIMESTAMP WHERE NUM_APOLICE = :NUM_APOLICE AND NRENDOS = 0 AND NUM_ITEM = 0 END SQL", "Inputs": [{"Field": ":DATA_TERVIGENCIA", "Type": "string"}, {"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [], "Endpoint": "or40a/or40p041"}

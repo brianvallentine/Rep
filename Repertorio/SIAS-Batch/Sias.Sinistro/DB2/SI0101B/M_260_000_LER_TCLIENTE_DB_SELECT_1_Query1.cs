@@ -1,0 +1,63 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Sinistro.DB2.SI0101B
+{
+    public class M_260_000_LER_TCLIENTE_DB_SELECT_1_Query1 : QueryBasis<M_260_000_LER_TCLIENTE_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT COD_CLIENTE
+            INTO
+            :CLIE-COD-CLIENTE
+            FROM
+            SEGUROS.V0SUBGRUPO
+            WHERE
+            NUM_APOLICE = :RELSIN-APOLICE
+            AND COD_SUBGRUPO = :MEST-CODSUBES
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT COD_CLIENTE
+											FROM
+											SEGUROS.V0SUBGRUPO
+											WHERE
+											NUM_APOLICE = '{this.RELSIN_APOLICE}'
+											AND COD_SUBGRUPO = '{this.MEST_CODSUBES}'";
+
+            return query;
+        }
+        public string CLIE_COD_CLIENTE { get; set; }
+        public string RELSIN_APOLICE { get; set; }
+        public string MEST_CODSUBES { get; set; }
+
+        public static M_260_000_LER_TCLIENTE_DB_SELECT_1_Query1 Execute(M_260_000_LER_TCLIENTE_DB_SELECT_1_Query1 m_260_000_LER_TCLIENTE_DB_SELECT_1_Query1)
+        {
+            var ths = m_260_000_LER_TCLIENTE_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override M_260_000_LER_TCLIENTE_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new M_260_000_LER_TCLIENTE_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.CLIE_COD_CLIENTE = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

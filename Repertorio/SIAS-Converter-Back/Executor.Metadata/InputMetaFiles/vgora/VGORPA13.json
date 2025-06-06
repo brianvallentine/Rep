@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT value(count(*),0) FROM seguros.v0endosso WHERE num_apolice = :NUM_APOLICE AND codsubes = :CODSUBES AND tipo_endosso = '1' END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":CODSUBES", "Type": "string"}], "Outputs": [], "Endpoint": "vgora/vgorpa13"}

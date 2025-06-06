@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COD_DESTINATARIO FROM SEGUROS.GE_REL_CARTA_DEST WHERE NUM_CARTA = :NUM_CARTA AND IND_DEST_PRINC = :IND_DEST_PRINC END SQL", "Inputs": [{"Field": ":NUM_CARTA", "Type": "string"}, {"Field": ":IND_DEST_PRINC", "Type": "string"}], "Outputs": [{"Field": "COD_DESTINATARIO", "Type": "string"}], "Endpoint": "sioda/siodp020"}

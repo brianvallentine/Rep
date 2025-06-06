@@ -1,0 +1,65 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.VidaAzul.DB2.VA0955B
+{
+    public class R1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1 : QueryBasis<R1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL SELECT
+            MAX(CODUSU)
+            INTO :V0HSIN-CODUSU-PRE:VIND-CODUSU-PRE
+            FROM SEGUROS.V0HISTSINI
+            WHERE NUM_APOL_SINISTRO = :SINISHIS-NUM-APOL-SINISTRO
+            AND OCORHIST = :SINISHIS-OCORR-HISTORICO
+            AND OPERACAO IN (1181, 1182, 1183)
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT
+											MAX(CODUSU)
+											FROM SEGUROS.V0HISTSINI
+											WHERE NUM_APOL_SINISTRO = '{this.SINISHIS_NUM_APOL_SINISTRO}'
+											AND OCORHIST = '{this.SINISHIS_OCORR_HISTORICO}'
+											AND OPERACAO IN (1181
+							, 1182
+							, 1183)";
+
+            return query;
+        }
+        public string V0HSIN_CODUSU_PRE { get; set; }
+        public string VIND_CODUSU_PRE { get; set; }
+        public string SINISHIS_NUM_APOL_SINISTRO { get; set; }
+        public string SINISHIS_OCORR_HISTORICO { get; set; }
+
+        public static R1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1 Execute(R1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1 r1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1)
+        {
+            var ths = r1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override R1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new R1205_00_SELECT_V0HISTSINI_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.V0HSIN_CODUSU_PRE = result[i++].Value?.ToString();
+            dta.VIND_CODUSU_PRE = string.IsNullOrWhiteSpace(dta.V0HSIN_CODUSU_PRE) ? "-1" : "0";
+            return dta;
+        }
+
+    }
+}

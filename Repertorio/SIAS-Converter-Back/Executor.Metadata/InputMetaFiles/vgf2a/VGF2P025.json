@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DES_CNAE_ATIVIDADE\nFROM SEGUROS.GE_CNAE_ATIVIDADE\n \nWHERE\n  COD_CNAE_ATIVIDADE  = :COD_CNAE_ATIVIDADE\n/\n END SQL", "Inputs": [{"Field": ":COD_CNAE_ATIVIDADE", "Type": "string"}], "Outputs": [{"Field": "DES_CNAE_ATIVIDADE", "Type": "string"}], "Endpoint": "vgf2a/VGF2P025"}

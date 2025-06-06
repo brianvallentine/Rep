@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT NRPARCEL, DTVENCTO, SITUACAO, DATE(TIMESTAMP) FROM seguros.v0parcelva WHERE NRCERTIF = :NRCERTIF ORDER BY 1 DESC END SQL", "Inputs": [{"Field": ":NRCERTIF", "Type": "string"}], "Outputs": [{"Field": "NRPARCEL", "Type": "string"}, {"Field": "DTVENCTO", "Type": "string"}, {"Field": "SITUACAO", "Type": "string"}], "Endpoint": "si4ba/si4bp033"}

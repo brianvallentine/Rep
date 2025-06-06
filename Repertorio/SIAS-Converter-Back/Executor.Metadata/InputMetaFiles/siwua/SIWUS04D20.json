@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT value(count(*),0) FROM seguros.SINI_BENEF_CBASICA WHERE A.num_Apolice = C.num_Apolice AND A.cgccpf = :SIWUW001.CGCCPF-BILHETE-SINISTRADO AND C.SIT_REGISTRO IN ('0','1') END SQL", "Inputs": [{"Field": ":SIWUW001.CGCCPF-BILHETE-SINISTRADO", "Type": "string"}], "Outputs": [], "Endpoint": "siwua/siwus04d20"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT LOCALNOME, LOCALUFLOCALCEP\nFROM seguros.ceplocal\n \nWHERE LOCALCHAVE = :LOCALCHAVE\n/\n END SQL", "Inputs": [{"Field": ":LOCALCHAVE", "Type": "string"}], "Outputs": [{"Field": "LOCALNOME", "Type": "string"}, {"Field": "LOCALUF", "Type": "string"}, {"Field": "LOCALCEP", "Type": "string"}], "Endpoint": "silua/SILUP011"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0numero_aes SET seq_apolice = :SEQ_APOLICE, timestamp = current timestamp WHERE cod_orgao = :COD_ORGAO AND cod_ramo = :COD_RAMO END SQL", "Inputs": [{"Field": ":SEQ_APOLICE", "Type": "string"}, {"Field": ":COD_ORGAO", "Type": "string"}, {"Field": ":COD_RAMO", "Type": "string"}], "Outputs": [], "Endpoint": "vgcca/vgccp056"}

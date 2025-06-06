@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(COUNT(*), 0) FROM seguros.calendario WHERE DATA_CALENDARIO >= :CB2GW001.DTQUITA1 AND DATA_CALENDARIO < :CB2GW001.DTTELA1 END SQL", "Inputs": [{"Field": ":CB2GW001.DTQUITA1", "Type": "string"}, {"Field": ":CB2GW001.DTTELA1", "Type": "string"}], "Outputs": [], "Endpoint": "cb2ga/cb2gp024"}

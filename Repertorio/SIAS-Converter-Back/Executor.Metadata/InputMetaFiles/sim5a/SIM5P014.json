@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT SIGLA_DOCUMENTO\nFROM seguros.ge_documento_tipo\n \nWHERE COD_DOCUMENTO = :COD_DOCUMENTO\n/\n END SQL", "Inputs": [{"Field": ":COD_DOCUMENTO", "Type": "string"}], "Outputs": [{"Field": "SIGLA_DOCUMENTO", "Type": "string"}], "Endpoint": "sim5a/SIM5P014"}

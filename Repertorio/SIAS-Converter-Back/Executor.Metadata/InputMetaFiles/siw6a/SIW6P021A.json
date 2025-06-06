@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.sini_vaspex02 T1 SET SITUACAO = '2' WHERE t1.num_apol_sinistro = :NUM_APOL_SINISTRO AND t1.operacao BETWEEN 300 AND 399 AND t1.ocorhist_histsini = :OCORHIST_HISTSINI END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}, {"Field": ":OCORHIST_HISTSINI", "Type": "string"}], "Outputs": [], "Endpoint": "siw6a/siw6p021a"}

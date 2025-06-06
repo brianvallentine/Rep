@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DAYS(CURRENT, DATE), -DAYS(DATA_seguros.calendario)\nFROM seguros.calendario\n\n END SQL", "Inputs": [], "Outputs": [{"Field": "DAYS", "Type": "string"}, {"Field": "CURRENT", "Type": "string"}, {"Field": "DATE", "Type": "string"}, {"Field": "DAYS", "Type": "string"}, {"Field": "DATA_CALENDARIO", "Type": "string"}], "Endpoint": "si37a/SI37P12"}

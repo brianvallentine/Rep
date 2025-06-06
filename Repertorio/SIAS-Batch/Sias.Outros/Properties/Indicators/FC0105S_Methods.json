@@ -1,0 +1,112 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 0,
+    "Deletes": 0,
+    "Selects": 0,
+    "Cursors": 0,
+    "Procedures": 1,
+    "All": 1
+  },
+  "MethodDescription": {
+    "ProgramName": "FC0105S",
+    "Quantity": 7,
+    "Methods": [
+      {
+        "EntraceMethod": false,
+        "Lines": 15,
+        "Name": "USING",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": true,
+        "Lines": 1,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "IntBasis LK_NUM_PLANO_P",
+          "IntBasis LK_NUM_SERIE_P",
+          "IntBasis LK_NUM_TITULO_P",
+          "DoubleBasis LK_NUM_PROPOSTA_P",
+          "IntBasis LK_QTD_TITULOS_P",
+          "DoubleBasis LK_VLR_TITULO_P",
+          "IntBasis LK_EMP_PARCEIRA_P",
+          "IntBasis LK_COD_RAMO_P",
+          "IntBasis LK_NUM_NSA_P",
+          "StringBasis LK_TRACE_P",
+          "IntBasis LK_OUT_COD_RETORNO_P",
+          "IntBasis LK_OUT_SQLCODE_P",
+          "StringBasis LK_OUT_MENSAGEM_P",
+          "StringBasis LK_OUT_SQLERRMC_P",
+          "StringBasis LK_OUT_SQLSTATE_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "P000_PRINCIPAL_SECTION"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 98,
+        "Name": "P000_PRINCIPAL_SECTION",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P010_RETORNA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P000_PRINCIPAL_DB_CALL_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P000_PRINCIPAL_SAIDA",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 20,
+        "Name": "P010_RETORNA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 0,
+        "Name": "P010_SAIDA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "DclDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "FilesDescription": {
+    "Quantity": 0,
+    "Names": []
+  }
+}

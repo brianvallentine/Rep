@@ -1,0 +1,181 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+using Xunit;
+using Copies;
+using Code;
+using static Code.GE0070S;
+
+namespace FileTests.Test
+{
+    [Collection("GE0070S_Tests")]
+    [Trait(IA_ConverterCommons.Utils.TestTraits.TestType.Name, IA_ConverterCommons.Utils.TestTraits.TestType.Values.UnitTesting)]
+    [Trait(IA_ConverterCommons.Utils.TestTraits.Package.Name, IA_ConverterCommons.Utils.TestTraits.Package.Values.Package01)]
+    [Trait(IA_ConverterCommons.Utils.TestTraits.Package.Name, IA_ConverterCommons.Utils.TestTraits.Package.Values.Package02)]
+    [Trait(IA_ConverterCommons.Utils.TestTraits.Package.Name, IA_ConverterCommons.Utils.TestTraits.Package.Values.Package03)]
+    [Trait(IA_ConverterCommons.Utils.TestTraits.Package.Name, IA_ConverterCommons.Utils.TestTraits.Package.Values.Package04)]
+    public class GE0070S_Tests
+    {
+        //é de extrema importancia que este método seja modificado com cautela, 
+        //o melhor é manter aqui apenas os dados que serão COMUM a todos os Fact's criados
+        public static void Load_Parameters()
+        {
+            #region PARAMETERS
+
+            #region P0050_05_INICIO_DB_SELECT_1_Query1
+
+            var q0 = new DynamicData();
+            q0.AddDynamic(new Dictionary<string, string>{
+                { "SISTEMAS_DATA_MOV_ABERTO" , ""}
+            });
+            AppSettings.TestSet.DynamicData.Add("P0050_05_INICIO_DB_SELECT_1_Query1", q0);
+
+            #endregion
+
+            #region P0101_05_INICIO_DB_SELECT_1_Query1
+
+            var q1 = new DynamicData();
+            q1.AddDynamic(new Dictionary<string, string>{
+                { "PRODUTO_DESCR_PRODUTO" , ""}
+            });
+            AppSettings.TestSet.DynamicData.Add("P0101_05_INICIO_DB_SELECT_1_Query1", q1);
+
+            #endregion
+
+            #region P0201_05_INICIO_DB_SELECT_1_Query1
+
+            var q2 = new DynamicData();
+            q2.AddDynamic(new Dictionary<string, string>{
+                { "GE089_COD_PRODUTO" , "7903"},
+                { "GE089_SEQ_PRODUTO_VRS" , ""},
+                { "GE089_DTA_INI_VIGENCIA" , ""},
+                { "GE089_DTA_FIM_VIGENCIA" , ""},
+                { "GE089_IND_FLUXO_PARAMTRIZADO" , ""},
+                { "GE089_COD_PERIOD_VIGENCIA" , ""},
+                { "GE089_QTD_PERIOD_VIGENCIA" , ""},
+                { "GE089_COD_MOEDA" , ""},
+                { "GE089_IND_RENOVA" , ""},
+                { "GE089_IND_RENOVA_AUTOMATICA" , ""},
+                { "GE089_QTD_RENOVA_AUTOMATICA" , ""},
+                { "GE089_IND_DPS" , ""},
+                { "GE089_IND_REENQUADRA_PREMIO" , ""},
+                { "GE089_IND_REAJUSTE_PREMIO" , ""},
+                { "GE089_COD_INDICE_REAJUSTE" , ""},
+                { "GE089_COD_PERIOD_REAJUSTE" , ""},
+                { "GE089_COD_INDICE_DEVOLUCAO" , ""},
+                { "GE089_PCT_JUROS_DEVOLUCAO" , ""},
+                { "GE089_PCT_MULTA_DEVOLUCAO" , ""},
+                { "GE089_IND_FLUXO_COMISSAO" , ""},
+                { "GE089_IND_ACOPLADO" , ""},
+                { "GE089_IND_FLUXO_SINISTRO" , ""},
+                { "GE089_IND_CONJUGE" , ""},
+                { "GE089_COD_USUARIO" , ""},
+                { "GE089_NOM_PROGRAMA" , ""},
+                { "GE089_DTH_CADASTRAMENTO" , ""},
+            });
+            AppSettings.TestSet.DynamicData.Add("P0201_05_INICIO_DB_SELECT_1_Query1", q2);
+
+            #endregion
+
+            #region P0202_05_INICIO_DB_SELECT_1_Query1
+
+            var q3 = new DynamicData();
+            q3.AddDynamic(new Dictionary<string, string>{
+                { "GE089_COD_PRODUTO" , ""},
+                { "GE089_SEQ_PRODUTO_VRS" , ""},
+                { "GE089_DTA_INI_VIGENCIA" , ""},
+                { "GE089_DTA_FIM_VIGENCIA" , ""},
+                { "GE089_IND_FLUXO_PARAMTRIZADO" , ""},
+                { "GE089_COD_PERIOD_VIGENCIA" , ""},
+                { "GE089_QTD_PERIOD_VIGENCIA" , ""},
+                { "GE089_COD_MOEDA" , ""},
+                { "GE089_IND_RENOVA" , ""},
+                { "GE089_IND_RENOVA_AUTOMATICA" , ""},
+                { "GE089_QTD_RENOVA_AUTOMATICA" , ""},
+                { "GE089_IND_DPS" , ""},
+                { "GE089_IND_REENQUADRA_PREMIO" , ""},
+                { "GE089_IND_REAJUSTE_PREMIO" , ""},
+                { "GE089_COD_INDICE_REAJUSTE" , ""},
+                { "GE089_COD_PERIOD_REAJUSTE" , ""},
+                { "GE089_COD_INDICE_DEVOLUCAO" , ""},
+                { "GE089_PCT_JUROS_DEVOLUCAO" , ""},
+                { "GE089_PCT_MULTA_DEVOLUCAO" , ""},
+                { "GE089_IND_FLUXO_COMISSAO" , ""},
+                { "GE089_IND_ACOPLADO" , ""},
+                { "GE089_IND_FLUXO_SINISTRO" , ""},
+                { "GE089_IND_CONJUGE" , ""},
+                { "GE089_COD_USUARIO" , ""},
+                { "GE089_NOM_PROGRAMA" , ""},
+                { "GE089_DTH_CADASTRAMENTO" , ""},
+            });
+            AppSettings.TestSet.DynamicData.Add("P0202_05_INICIO_DB_SELECT_1_Query1", q3);
+
+            #endregion
+
+            #endregion
+        }
+
+        [Fact]
+        public static void GE0070S_Tests_Fact_UsuarioVazio_ReturnCode_1()
+        {
+            lock (AppSettings.TestSet._lock)
+            {
+                AppSettings.TestSet.IsTest = true;
+                AppSettings.TestSet.Clear();
+                Load_Parameters();
+
+                //para testes quando necessário alterar alguma variavel do loadParameter faça assim:
+                //AppSettings.TestSet.DynamicData["R0100_00_INICIALIZA_Query1"]["SISTEMAS_DATA_MOV_ABERTO"] = "10";
+                //dessa forma, alteramos apenas no necessário para os testes e evitamos alterar testes subsequentes, o region a seguir serve para isso...
+
+                #region VARIAVEIS_TESTE
+                var param = new GE0070W();
+                param.LK_0070_E_ACAO.Value = 01;
+                param.LK_0070_I_SEQ_PRODUTO_VRS.Value = 10;
+                param.LK_0070_E_TRACE.Value = "S";
+                #endregion
+                var program = new GE0070S();
+                program.Execute(param);
+
+                Assert.True(program.GE0070W.LK_0070_E_COD_USUARIO.IsEmpty());
+                Assert.True(program.GE0070W.LK_0070_IND_ERRO.Value == 1);
+
+            }
+        }
+        [Fact]
+        public static void GE0070S_Tests_Fact_Produto_7903_ReturnCode_0()
+        {
+            lock (AppSettings.TestSet._lock)
+            {
+                AppSettings.TestSet.IsTest = true;
+                AppSettings.TestSet.Clear();
+                Load_Parameters();
+
+                //para testes quando necessário alterar alguma variavel do loadParameter faça assim:
+                //AppSettings.TestSet.DynamicData["R0100_00_INICIALIZA_Query1"]["SISTEMAS_DATA_MOV_ABERTO"] = "10";
+                //dessa forma, alteramos apenas no necessário para os testes e evitamos alterar testes subsequentes, o region a seguir serve para isso...
+
+                #region VARIAVEIS_TESTE
+                var param = new GE0070W();
+                param.LK_0070_E_ACAO.Value = 01;
+                param.LK_0070_I_SEQ_PRODUTO_VRS.Value = 10;
+                param.LK_0070_E_TRACE.Value = "S";
+                param.LK_0070_E_COD_USUARIO.Value = "HUGO";
+                param.LK_0070_E_NOM_PROGRAMA.Value = "GE0070S";
+
+                #endregion
+                var program = new GE0070S();
+                program.Execute(param);
+
+                Assert.True(program.GE0070W.LK_0070_IND_ERRO.Value == 0);
+                Assert.True(program.GE089.DCLGE_PRODUTO_COMPLEMENTO.GE089_COD_PRODUTO.Value == 7903);
+
+            }
+        }
+    }
+}

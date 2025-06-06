@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT days(t1.dtmovabe) - days(t2.dtmovto) FROM seguros.v1sistema WHERE t1.idsistem = :IDSISTEM AND t2.codusu = :AS00W02.CODUSU END SQL", "Inputs": [{"Field": ":IDSISTEM", "Type": "string"}, {"Field": ":AS00W02.CODUSU", "Type": "string"}], "Outputs": [], "Endpoint": "as01a/as01p25"}

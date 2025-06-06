@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_RELATORIO\nFROM seguros.relatorios\nWHERE \nWHERE NUM_CERTIFICADO = :NUM_CERTIFICADO\nAND COD_RELATORIO = 'CARENCIA'\nORDER BY TIMESTAMP DESC\nFETCH FIRST 1 ROW ONLY\n/\nORDER BY END SQL", "Inputs": [{"Field": ":NUM_CERTIFICADO", "Type": "string"}], "Outputs": [{"Field": "COD_RELATORIO", "Type": "string"}], "Endpoint": "vgmpa/VGMPP042"}

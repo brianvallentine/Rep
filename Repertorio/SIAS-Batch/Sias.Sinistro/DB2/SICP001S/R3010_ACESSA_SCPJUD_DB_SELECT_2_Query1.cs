@@ -1,0 +1,62 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Sinistro.DB2.SICP001S
+{
+    public class R3010_ACESSA_SCPJUD_DB_SELECT_2_Query1 : QueryBasis<R3010_ACESSA_SCPJUD_DB_SELECT_2_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT COD_PROCESSO_JURID
+            INTO :SIPROJUD-COD-PROCESSO-JURID
+            FROM SEGUROS.SI_DETALHE_PROC_JURID SDPJ
+            WHERE SDPJ.NUM_APOL_SINISTRO =
+            :SINISHIS-NUM-APOL-SINISTRO
+            AND SDPJ.OCORR_HISTORICO =
+            :SINISHIS-OCORR-HISTORICO
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT COD_PROCESSO_JURID
+											FROM SEGUROS.SI_DETALHE_PROC_JURID SDPJ
+											WHERE SDPJ.NUM_APOL_SINISTRO =
+											'{this.SINISHIS_NUM_APOL_SINISTRO}'
+											AND SDPJ.OCORR_HISTORICO =
+											'{this.SINISHIS_OCORR_HISTORICO}'";
+
+            return query;
+        }
+        public string SIPROJUD_COD_PROCESSO_JURID { get; set; }
+        public string SINISHIS_NUM_APOL_SINISTRO { get; set; }
+        public string SINISHIS_OCORR_HISTORICO { get; set; }
+
+        public static R3010_ACESSA_SCPJUD_DB_SELECT_2_Query1 Execute(R3010_ACESSA_SCPJUD_DB_SELECT_2_Query1 r3010_ACESSA_SCPJUD_DB_SELECT_2_Query1)
+        {
+            var ths = r3010_ACESSA_SCPJUD_DB_SELECT_2_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override R3010_ACESSA_SCPJUD_DB_SELECT_2_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new R3010_ACESSA_SCPJUD_DB_SELECT_2_Query1();
+            var i = 0;
+            dta.SIPROJUD_COD_PROCESSO_JURID = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

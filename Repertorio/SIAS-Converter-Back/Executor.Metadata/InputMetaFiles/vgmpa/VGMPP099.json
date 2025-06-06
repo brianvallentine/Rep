@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT ENDERECO\nFROM seguros.v1enderecos\n \nwhere cod_cliente = :COD_CLIENTE\nand   ocorr_endereco = :OCORR_ENDERECO\n/\n END SQL", "Inputs": [{"Field": ":COD_CLIENTE", "Type": "string"}, {"Field": ":OCORR_ENDERECO", "Type": "string"}], "Outputs": [{"Field": "ENDERECO", "Type": "string"}], "Endpoint": "vgmpa/VGMPP099"}

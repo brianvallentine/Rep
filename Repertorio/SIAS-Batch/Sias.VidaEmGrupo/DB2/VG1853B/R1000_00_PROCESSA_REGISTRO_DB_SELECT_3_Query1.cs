@@ -1,0 +1,108 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.VidaEmGrupo.DB2.VG1853B
+{
+    public class R1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1 : QueryBasis<R1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT ESTR_COBR,
+            ORIG_PRODU,
+            TEM_SAF,
+            TEM_IGPM,
+            CODPRODAZ,
+            OPCAOCAP,
+            COBERADIC_PREMIO,
+            CUSTOCAP_TOTAL
+            INTO :V0PRDVG-ESTR-COBR:VIND-ESTR-COBR,
+            :V0PRDVG-ORIG-PRODU:VIND-ORIG-PRODU,
+            :V0PRDVG-TEM-SAF:VIND-TEM-SAF,
+            :V0PRDVG-TEM-IGPM:VIND-TEM-IGPM,
+            :V0PRDVG-CODPRODAZ,
+            :V0PRDVG-OPCAOCAP,
+            :V0PRDVG-COBERADIC-PREMIO,
+            :V0PRDVG-CUSTOCAP-TOTAL
+            FROM SEGUROS.V0PRODUTOSVG
+            WHERE NUM_APOLICE = :V0PROP-NUM-APOLICE
+            AND CODSUBES = :V0PROP-CODSUBES
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT ESTR_COBR
+							,
+											ORIG_PRODU
+							,
+											TEM_SAF
+							,
+											TEM_IGPM
+							,
+											CODPRODAZ
+							,
+											OPCAOCAP
+							,
+											COBERADIC_PREMIO
+							,
+											CUSTOCAP_TOTAL
+											FROM SEGUROS.V0PRODUTOSVG
+											WHERE NUM_APOLICE = '{this.V0PROP_NUM_APOLICE}'
+											AND CODSUBES = '{this.V0PROP_CODSUBES}'";
+
+            return query;
+        }
+        public string V0PRDVG_ESTR_COBR { get; set; }
+        public string VIND_ESTR_COBR { get; set; }
+        public string V0PRDVG_ORIG_PRODU { get; set; }
+        public string VIND_ORIG_PRODU { get; set; }
+        public string V0PRDVG_TEM_SAF { get; set; }
+        public string VIND_TEM_SAF { get; set; }
+        public string V0PRDVG_TEM_IGPM { get; set; }
+        public string VIND_TEM_IGPM { get; set; }
+        public string V0PRDVG_CODPRODAZ { get; set; }
+        public string V0PRDVG_OPCAOCAP { get; set; }
+        public string V0PRDVG_COBERADIC_PREMIO { get; set; }
+        public string V0PRDVG_CUSTOCAP_TOTAL { get; set; }
+        public string V0PROP_NUM_APOLICE { get; set; }
+        public string V0PROP_CODSUBES { get; set; }
+
+        public static R1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1 Execute(R1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1 r1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1)
+        {
+            var ths = r1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override R1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new R1000_00_PROCESSA_REGISTRO_DB_SELECT_3_Query1();
+            var i = 0;
+            dta.V0PRDVG_ESTR_COBR = result[i++].Value?.ToString();
+            dta.VIND_ESTR_COBR = string.IsNullOrWhiteSpace(dta.V0PRDVG_ESTR_COBR) ? "-1" : "0";
+            dta.V0PRDVG_ORIG_PRODU = result[i++].Value?.ToString();
+            dta.VIND_ORIG_PRODU = string.IsNullOrWhiteSpace(dta.V0PRDVG_ORIG_PRODU) ? "-1" : "0";
+            dta.V0PRDVG_TEM_SAF = result[i++].Value?.ToString();
+            dta.VIND_TEM_SAF = string.IsNullOrWhiteSpace(dta.V0PRDVG_TEM_SAF) ? "-1" : "0";
+            dta.V0PRDVG_TEM_IGPM = result[i++].Value?.ToString();
+            dta.VIND_TEM_IGPM = string.IsNullOrWhiteSpace(dta.V0PRDVG_TEM_IGPM) ? "-1" : "0";
+            dta.V0PRDVG_CODPRODAZ = result[i++].Value?.ToString();
+            dta.V0PRDVG_OPCAOCAP = result[i++].Value?.ToString();
+            dta.V0PRDVG_COBERADIC_PREMIO = result[i++].Value?.ToString();
+            dta.V0PRDVG_CUSTOCAP_TOTAL = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

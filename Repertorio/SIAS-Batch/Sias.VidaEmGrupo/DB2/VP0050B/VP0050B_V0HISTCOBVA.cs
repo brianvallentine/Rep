@@ -1,0 +1,68 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.VidaEmGrupo.DB2.VP0050B
+{
+    public class VP0050B_V0HISTCOBVA : QueryBasis<VP0050B_V0HISTCOBVA>
+    {
+        [JsonIgnore] public bool JustACursor { get; set; } = false;
+
+        public delegate string GetQueryDelegateHandler();
+        public event GetQueryDelegateHandler GetQueryEvent;
+
+        //ESTE CONSTRUTOR NÃO DEVE SER USADO ( CUIDADO )
+        public VP0050B_V0HISTCOBVA() { IsCursor = true; }
+
+        public VP0050B_V0HISTCOBVA(bool justACursor)
+        {
+            JustACursor = justACursor;
+            IsCursor = true;
+        }
+
+        public string V0HIST_NRPARCEL { get; set; }
+        public string V0HIST_DTVENCTO { get; set; }
+        public string V0HIST_SITUACAO { get; set; }
+        public string V0HIST_VLPRMTOT { get; set; }
+
+        public new void Open()
+        {
+            if (!IsProcedure)
+                SetQuery(GetQueryEvent());
+            base.Open();
+        }
+
+
+        public new bool Fetch()
+        {
+            if (!JustACursor)
+            {
+                var idx = CurrentIndex;
+                Open();
+                CurrentIndex = idx > -1 ? idx : 0;
+            }
+
+            return base.Fetch();
+        }
+
+
+        public override VP0050B_V0HISTCOBVA OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new VP0050B_V0HISTCOBVA();
+            var i = 0;
+
+            dta.V0HIST_NRPARCEL = result[i++].Value?.ToString();
+            dta.V0HIST_DTVENCTO = result[i++].Value?.ToString();
+            dta.V0HIST_SITUACAO = result[i++].Value?.ToString();
+            dta.V0HIST_VLPRMTOT = result[i++].Value?.ToString();
+
+            return dta;
+        }
+
+    }
+}

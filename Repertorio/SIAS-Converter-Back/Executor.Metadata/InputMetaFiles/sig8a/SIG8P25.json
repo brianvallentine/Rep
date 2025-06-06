@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT NUM_DOCF_INTERNOIDTAB_FORNECEDOR\nFROM SEGUROS.FI_PAGA_DOC_FISCAL\n \nwhere num_docf_interno  =  :NUM_DOCF_INTERNO\n/\n END SQL", "Inputs": [{"Field": ":NUM_DOCF_INTERNO", "Type": "string"}], "Outputs": [{"Field": "NUM_DOCF_INTERNO", "Type": "string"}, {"Field": "IDTAB_FORNECEDOR", "Type": "string"}], "Endpoint": "sig8a/SIG8P25"}

@@ -1,0 +1,129 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 0,
+    "Deletes": 0,
+    "Selects": 1,
+    "Cursors": 0,
+    "Procedures": 0,
+    "All": 1
+  },
+  "MethodDescription": {
+    "ProgramName": "SI1040S",
+    "Quantity": 9,
+    "Methods": [
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "USING",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": true,
+        "Lines": 7,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "LBSI1040_SI1040S_PARAMETROS LBSI1040_SI1040S_PARAMETROS_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "R10_CONSISTE_ENTRADA",
+          "R10_FIM",
+          "R20_PROCESSA_DESPESA",
+          "R20_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 26,
+        "Name": "R10_CONSISTE_ENTRADA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "R10_FIM",
+          "R100_PROCESSA_OPER",
+          "R100_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "R10_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 12,
+        "Name": "R100_PROCESSA_OPER",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "R100_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "R100_PROCESSA_OPER_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "R100_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 115,
+        "Name": "R20_PROCESSA_DESPESA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "R20_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "R20_FIM",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 1,
+    "Names": [
+      "LBSI1040"
+    ]
+  },
+  "DclDescription": {
+    "Quantity": 1,
+    "Names": [
+      "GEOPERAC"
+    ]
+  },
+  "FilesDescription": {
+    "Quantity": 0,
+    "Names": []
+  }
+}

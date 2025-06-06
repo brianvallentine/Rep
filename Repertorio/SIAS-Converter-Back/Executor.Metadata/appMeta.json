@@ -1,0 +1,38 @@
+﻿{
+  "inputDirectory": "InputMetaFiles",
+  "outputDirectory": "OutputTemplateFiles",
+  "outputCobolDirectory": "OutputCobolFiles", //funcional apenas para o MetaDados, esta será a pasta de saida do projeto convertido em .NET C#
+  "solutionName": "Sias.Backend",
+  "projectCopyName": "Copies",
+  "projectCobolName": "FileTests",
+  "projectDclName": "Dclgens",
+  "projectTestName": "FileTests.Test",
+
+  "convertToSqlServer": true,
+  "databaseOriginalPrefixes": "SEGUROS.,SIUS.,CVP.",
+  "databasePrefixes": "{AppSettings.Settings.DBNamesList[\"SEGUROS.\"]},{AppSettings.Settings.DBNamesList[\"SIUS.\"]},{AppSettings.Settings.DBNamesList[\"CVP.\"]}",
+
+  "generateTestProject": true, // adiciona a geração do projeto de teste ao resultado
+  "justAnalyse": false, //roda apenas a analise do código já convertido
+  "parallelExecution": false, //roda em pararelo a conversão com Threads
+
+  "logAllLines": true, //loga todas as linhas da procedure division cobol
+  "logNumber": true, //loga os numeros das linhas
+  "logTimeLine": false, //loga os numeros das linhas
+  "showErrors": true, // mostra os erros ocorridos na conversão
+  "generateAtSingleProject": false, // faz a geração em apenas 1 projeto, não separando os fontes
+  "addTestProject": false, // adiciona o projeto de teste ao resultado
+  "generateApiProject": true, // faz a geração DE Api's
+  "generateJsonIndicators": true, // faz a geração de indicadores em JSON
+  "buildAndShow": false, // faz o build no processo ( funcionalidade em desenvolvimento )
+  "generateExcelIndicators": false, // faz a geração de indicadores em Excel
+
+  "inputConfig": {
+    "analisysBlock": 0,
+    "analisysProject": "", //"analisysProject": "Sias.VidaAzul",
+    "generateSingleProject": false,
+    "onlySprint": false, //pega da lista de sprint
+    "onlyTested": false, //pega da lista de sprint
+    "sprintAndConvert": false //usa a onlySprint porem para selecionar apenas os CONVERT = true
+  }
+}

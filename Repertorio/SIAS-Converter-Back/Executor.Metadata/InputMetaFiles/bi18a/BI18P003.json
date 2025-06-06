@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DTMOVABEDAYS(DTMOVABE)\nFROM seguros.v1sistema\n \nWHERE\n  IDSISTEM = 'RN'\n/\n END SQL", "Inputs": [], "Outputs": [{"Field": "DTMOVABE", "Type": "string"}, {"Field": "DAYS", "Type": "string"}, {"Field": "DTMOVABE", "Type": "string"}], "Endpoint": "bi18a/BI18P003"}

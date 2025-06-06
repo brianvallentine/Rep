@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(MAX(DTH_INI_VIGENCIA), '0001-01-01') FROM SEGUROS.SI_PARAM_CORRECAO WHERE COD_PRODUTO = :COD_PRODUTO END SQL", "Inputs": [{"Field": ":COD_PRODUTO", "Type": "string"}], "Outputs": [{"Field": "DTH_INI_VIGENCIA", "Type": "string"}], "Endpoint": "sirfa/sirfp011"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DESOPRblqlib\nFROM seguros.v1codoper\n \nwhere    operacao = :OPERACAO\n/\n END SQL", "Inputs": [{"Field": ":OPERACAO", "Type": "string"}], "Outputs": [{"Field": "DESOPR", "Type": "string"}, {"Field": "blqlib", "Type": "string"}], "Endpoint": "or20a/OR20P17"}

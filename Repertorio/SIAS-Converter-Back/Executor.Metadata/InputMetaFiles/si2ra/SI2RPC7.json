@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DTMOVABE, month(dtmovabe), year(dtmovabe) FROM seguros.v1sistema WHERE IDSISTEM = :IDSISTEM END SQL", "Inputs": [{"Field": ":IDSISTEM", "Type": "string"}], "Outputs": [{"Field": "DTMOVABE", "Type": "string"}, {"Field": "month(dtmovabe)", "Type": "string"}, {"Field": "year(dtmovabe)", "Type": "string"}], "Endpoint": "si2ra/si2rpc7"}

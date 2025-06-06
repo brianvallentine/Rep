@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT NUM_APOLICE, NRENDOS, NRPARCEL, SITUACAO FROM seguros.v0parcela WHERE num_apolice = :NUM_APOLICE AND nrendos = :NRENDOS AND nrparcel = :NRPARCEL AND situacao = '1' END SQL", "Inputs": [":NUM_APOLICE", ":NRENDOS", ":NRPARCEL"], "Outputs": ["NUM_APOLICE", "NRENDOS", "NRPARCEL", "SITUACAO"]}

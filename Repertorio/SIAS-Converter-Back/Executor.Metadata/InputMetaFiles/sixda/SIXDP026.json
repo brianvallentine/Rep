@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DATA_OCORRENCIA\nFROM SEGUROS.SINISTRO_MESTRE\n \nWHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "DATA_OCORRENCIA", "Type": "string"}], "Endpoint": "sixda/SIXDP026"}

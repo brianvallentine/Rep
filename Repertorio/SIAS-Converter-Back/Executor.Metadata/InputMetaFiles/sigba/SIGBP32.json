@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COD_IMPOSTO_SAP FROM SIUS.FI_TP_IMPOSTO_SAP WHERE VLR_ALIQ_SAP = :VLR_ALIQ_SAP AND COD_IMP_INTERNO = :COD_IMP_INTERNO END SQL", "Inputs": [{"Field": ":VLR_ALIQ_SAP", "Type": "string"}, {"Field": ":COD_IMP_INTERNO", "Type": "string"}], "Outputs": [{"Field": "COD_IMPOSTO_SAP", "Type": "string"}], "Endpoint": "sigba/sigbp32"}

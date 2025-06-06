@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT NUM_PESSOA, NUM_CNPJNUM_FILIAL\nFROM ODS.OD_PESSOA_JURIDICA\n \nWHERE     NUM_PESSOA          = :NUM_PESSOA\n/\n END SQL", "Inputs": [{"Field": ":NUM_PESSOA", "Type": "string"}], "Outputs": [{"Field": "NUM_PESSOA", "Type": "string"}, {"Field": "NUM_CNPJ", "Type": "string"}, {"Field": "NUM_FILIAL", "Type": "string"}], "Endpoint": "cb81a/CB81P093"}

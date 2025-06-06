@@ -1,0 +1,470 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 1,
+    "Deletes": 0,
+    "Selects": 15,
+    "Cursors": 1,
+    "Procedures": 0,
+    "All": 17
+  },
+  "MethodDescription": {
+    "ProgramName": "SPBFC003",
+    "Quantity": 40,
+    "Methods": [
+      {
+        "EntraceMethod": false,
+        "Lines": 9,
+        "Name": "USING",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": true,
+        "Lines": 1,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "StringBasis LK_IN_COD_SEQ_P",
+          "IntBasis LK_IN_QTD_SEQ_P",
+          "IntBasis LK_OUT_NUM_SEQ_INI_P",
+          "IntBasis LK_OUT_NUM_SEQ_FIM_P",
+          "IntBasis LK_OUT_COD_RETORNO_P",
+          "IntBasis LK_OUT_SQLCODE_P",
+          "StringBasis LK_OUT_MENSAGEM_P",
+          "StringBasis LK_OUT_SQLERRMC_P",
+          "StringBasis LK_OUT_SQLSTATE_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "P000_INICIO"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 45,
+        "Name": "P000_INICIO",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P050_PROCESSA_FC_SEQUENCE",
+          "P100_ACESSA_SEQUENCE_FC302SQ",
+          "P100_ACESSA_SEQUENCE_FC103SQ",
+          "P100_ACESSA_SEQUENCE_FC222SQ",
+          "P100_ACESSA_SEQUENCE_FC035SQ",
+          "P100_ACESSA_SEQUENCE_FC085SQ",
+          "P100_ACESSA_SEQUENCE_FC036SQ",
+          "P100_ACESSA_SEQUENCE_FC105SQ",
+          "P100_ACESSA_SEQUENCE_FC106SQ",
+          "P100_ACESSA_SEQUENCE_FC092SQ",
+          "P100_ACESSA_SEQUENCE_FC084SQ",
+          "P100_ACESSA_SEQUENCE_FC216SQ",
+          "P100_ACESSA_SEQUENCE_FC002SQ",
+          "P100_ACESSA_SEQUENCE_FC074SQ",
+          "P100_ACESSA_SEQUENCE_FC072SQ",
+          "P100_ACESSA_SEQUENCE_FC037SQ",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 36,
+        "Name": "P050_PROCESSA_FC_SEQUENCE",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P050_PROCESSA_FC_SEQUENCE_DB_OPEN_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P050_PROCESSA_FC_SEQUENCE_DB_FETCH_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P050_PROCESSA_FC_SEQUENCE_DB_UPDATE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P050_PROCESSA_FC_SEQUENCE_DB_CLOSE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC302SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC302SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC103SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC103SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC222SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC222SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC035SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC035SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC085SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC085SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC036SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC036SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC105SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC105SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC106SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC106SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC092SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC092SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC084SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC084SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC216SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC216SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC002SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC002SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC074SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC074SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC072SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC072SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 8,
+        "Name": "P100_ACESSA_SEQUENCE_FC037SQ",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P999_DB2_ERROR",
+          "P999_ENCERRA_PROGRAMA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P100_ACESSA_SEQUENCE_FC037SQ_DB_SEQUENCE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 5,
+        "Name": "P999_DB2_ERROR",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 5,
+        "Name": "P999_ENCERRA_PROGRAMA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "DclDescription": {
+    "Quantity": 2,
+    "Names": [
+      "FCSEQUEN",
+      "CSS_SEQUENCE"
+    ]
+  },
+  "FilesDescription": {
+    "Quantity": 0,
+    "Names": []
+  }
+}

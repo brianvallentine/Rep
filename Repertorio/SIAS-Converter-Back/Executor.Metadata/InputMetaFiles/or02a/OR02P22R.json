@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VLRCAP, DATARCAP FROM seguros.v1rcapcomp WHERE fonte = :FONTE AND nrrcap = :NRRCAP AND nrrcapco = 0 AND operacao IN (100, 110, 300, 310, 320, 500) AND situacao = '0' END SQL", "Inputs": [":FONTE", ":NRRCAP"], "Outputs": ["VLRCAP", "DATARCAP"]}

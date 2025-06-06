@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT NUM_APOL_SINISTRO, COD_PROCESSO_JURID FROM SEGUROS.SI_PROCESSO_JURID WHERE COD_PROCESSO_JURID = :COD_PROCESSO_JURID END SQL", "Inputs": [{"Field": ":COD_PROCESSO_JURID", "Type": "string"}], "Outputs": [{"Field": "NUM_APOL_SINISTRO", "Type": "string"}, {"Field": "COD_PROCESSO_JURID", "Type": "string"}], "Endpoint": "si9ha/si9hp041"}

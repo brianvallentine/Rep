@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COUNT(*) - 1 FROM seguros.calendario WHERE DATA_CALENDARIO BETWEEN :CB58W001.DTCANCEL AND :DATA_CALENDARIO END SQL", "Inputs": [{"Field": ":CB58W001.DTCANCEL", "Type": "string"}, {"Field": ":DATA_CALENDARIO", "Type": "string"}], "Outputs": [{"Field": "CB58W001.QTD_DIAS_CANC", "Type": "string"}], "Endpoint": "cb59a/cb58p106"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT MAX(NRAVISO) FROM seguros.v0avisocred WHERE BCOAVISO = :BCOAVISO AND AGEAVISO = :AGEAVISO AND NRAVISO < 200000000 END SQL", "Inputs": [{"Field": ":BCOAVISO", "Type": "string"}, {"Field": ":AGEAVISO", "Type": "string"}], "Outputs": [{"Field": "NRAVISO", "Type": "string"}], "Endpoint": "cb1ca/cb1cpe3"}

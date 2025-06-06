@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT CODUNIMODIFPRM\nFROM seguros.v1parametro\n \nWHERE DTTERVIG = '9999-12-31' AND COD_EMPRESA = :COD_EMPRESA\n/\n END SQL", "Inputs": [{"Field": ":COD_EMPRESA", "Type": "string"}], "Outputs": [{"Field": "CODUNIMO", "Type": "string"}, {"Field": "DIFPRM", "Type": "string"}], "Endpoint": "or20a/OR20P33"}

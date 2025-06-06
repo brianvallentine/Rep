@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(MAX(OCORHIST), 0) FROM SEGUROS.V0MESTSINI WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO WITH UR END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "OCORHIST", "Type": "string"}], "Endpoint": "si6ca/si6cpd035"}

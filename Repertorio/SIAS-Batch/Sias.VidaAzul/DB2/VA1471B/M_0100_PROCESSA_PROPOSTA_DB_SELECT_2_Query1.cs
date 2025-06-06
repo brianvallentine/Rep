@@ -1,0 +1,63 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.VidaAzul.DB2.VA1471B
+{
+    public class M_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1 : QueryBasis<M_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT NUM_PROPOSTA_SIVPF ,
+            COD_PRODUTO_SIVPF
+            INTO :CONVERSI-NUM-PROPOSTA-SIVPF ,
+            :CONVERSI-COD-PRODUTO-SIVPF
+            FROM SEGUROS.CONVERSAO_SICOB
+            WHERE NUM_SICOB =
+            :CONVERSI-NUM-SICOB
+            END-EXEC
+            */
+            #endregion
+            var query = @$"
+				SELECT NUM_PROPOSTA_SIVPF 
+							,
+											COD_PRODUTO_SIVPF
+											FROM SEGUROS.CONVERSAO_SICOB
+											WHERE NUM_SICOB =
+											'{this.CONVERSI_NUM_SICOB}'";
+
+            return query;
+        }
+        public string CONVERSI_NUM_PROPOSTA_SIVPF { get; set; }
+        public string CONVERSI_COD_PRODUTO_SIVPF { get; set; }
+        public string CONVERSI_NUM_SICOB { get; set; }
+
+        public static M_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1 Execute(M_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1 m_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1)
+        {
+            var ths = m_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override M_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new M_0100_PROCESSA_PROPOSTA_DB_SELECT_2_Query1();
+            var i = 0;
+            dta.CONVERSI_NUM_PROPOSTA_SIVPF = result[i++].Value?.ToString();
+            dta.CONVERSI_COD_PRODUTO_SIVPF = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

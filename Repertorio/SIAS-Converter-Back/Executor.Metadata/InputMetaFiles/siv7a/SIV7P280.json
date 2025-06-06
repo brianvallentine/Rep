@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.seguros.v0histsini SET SITUACAO = '2' WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND (OPERACAO BETWEEN 2001 AND 2009 OR OPERACAO IN (2011, 2012)) AND OCORHIST = :OCORHIST END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}, {"Field": ":OCORHIST", "Type": "string"}], "Outputs": [], "Endpoint": "siv7a/siv7p280"}

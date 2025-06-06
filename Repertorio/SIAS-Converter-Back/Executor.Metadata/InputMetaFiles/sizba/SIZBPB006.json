@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT SUM(VAL_COBERTURA_IX) FROM seguros.v0bilhete_cober WHERE ramofr = :RAMOFR AND modalifr = :MODALIFR AND cod_opcao = :COD_OPCAO AND dtinivig <= :DTINIVIG AND dttervig >= :DTINIVIG END SQL", "Inputs": [":RAMOFR", ":MODALIFR", ":COD_OPCAO", ":DTINIVIG"], "Outputs": ["SUM(VAL_COBERTURA_IX)"]}

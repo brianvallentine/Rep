@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT IDSISTEMDTMOVABE\nFROM seguros.v1sistema\n \n    where idsistem = :IDSISTEM\n/\n END SQL", "Inputs": [{"Field": ":IDSISTEM", "Type": "string"}], "Outputs": [{"Field": "IDSISTEM", "Type": "string"}, {"Field": "DTMOVABE", "Type": "string"}], "Endpoint": "co86a/CO86P19"}

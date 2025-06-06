@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DESCR_CAUSA\nFROM seguros.sinistro_causa\n \nWHERE RAMO_EMISSOR = :RAMO_EMISSOR\n  AND COD_CAUSA    = :COD_CAUSA\n/\n END SQL", "Inputs": [{"Field": ":RAMO_EMISSOR", "Type": "string"}, {"Field": ":COD_CAUSA", "Type": "string"}], "Outputs": [{"Field": "DESCR_CAUSA", "Type": "string"}], "Endpoint": "siw7a/SIW7P20D"}

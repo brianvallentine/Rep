@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT max(SEQ_APOLICE) FROM seguros.v1numero_aes WHERE cod_orgao = :COD_ORGAO and cod_ramo = :COD_RAMO END SQL", "Inputs": [{"Field": ":COD_ORGAO", "Type": "string"}, {"Field": ":COD_RAMO", "Type": "string"}], "Outputs": [{"Field": "SEQ_APOLICE", "Type": "string"}], "Endpoint": "vgcfa/vgcfp050"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_FONTE\nFROM SEGUROS.SINISTRO_MESTRE\n \nWHERE NUM_IRB = :NUM_IRB\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":NUM_IRB", "Type": "string"}], "Outputs": [{"Field": "COD_FONTE", "Type": "string"}], "Endpoint": "sixca/SIXCP023"}

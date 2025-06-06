@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.subgrupos_vgap SET SIT_REGISTRO = '0', DATA_TERVIGENCIA = :WS-DATA-INIVIG WHERE NUM_APOLICE = :NUM_APOLICE AND COD_SUBGRUPO = 0 END SQL", "Inputs": [{"Field": ":WS-DATA-INIVIG", "Type": "string"}, {"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [], "Endpoint": "vgj1a/vgj1p026"}

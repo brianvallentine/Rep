@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_PRODUTO\nFROM seguros.apolices\n \nWHERE NUM_APOLICE = :NUM_APOLICE\n;** INSERT ORDER BY CLAUSE HERE **\n/\nORDER BY END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [{"Field": "COD_PRODUTO", "Type": "string"}], "Endpoint": "cb92a/CB92P044"}

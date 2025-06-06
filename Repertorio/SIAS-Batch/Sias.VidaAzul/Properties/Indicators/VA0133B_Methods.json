@@ -1,0 +1,156 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 0,
+    "Deletes": 0,
+    "Selects": 0,
+    "Cursors": 1,
+    "Procedures": 0,
+    "All": 1
+  },
+  "MethodDescription": {
+    "ProgramName": "VA0133B",
+    "Quantity": 11,
+    "Methods": [
+      {
+        "EntraceMethod": true,
+        "Lines": 4,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "StringBasis WS_DTPARM_P",
+          "string VA0133B1_FILE_NAME_P",
+          "string VA0133B2_FILE_NAME_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "P1000_INICIALIZA",
+          "P2000_PROCESSA",
+          "P9999_FINALIZA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 9,
+        "Name": "P1000_INICIALIZA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9998_ERRO_DB2"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P1000_INICIALIZA_DB_OPEN_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 5,
+        "Name": "P2000_PROCESSA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P2100_FETCH",
+          "P2300_GRAVA_SAIDA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 15,
+        "Name": "P2100_FETCH",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9998_ERRO_DB2"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P2100_FETCH_DB_FETCH_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 45,
+        "Name": "P2300_GRAVA_SAIDA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 11,
+        "Name": "P9998_ERRO_DB2",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P9999_FINALIZA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 23,
+        "Name": "P9998_DISPLAY_FETCH",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 27,
+        "Name": "P9999_FINALIZA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P9999_FINALIZA_DB_CLOSE_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "DclDescription": {
+    "Quantity": 7,
+    "Names": [
+      "HISLANCT",
+      "PROPOVA",
+      "CLIENTES",
+      "ENDERECO",
+      "CLIENEMA",
+      "PRODUTO",
+      "C01"
+    ]
+  },
+  "FilesDescription": {
+    "Quantity": 2,
+    "Names": [
+      "VA0133B10",
+      "VA0133B20"
+    ]
+  }
+}

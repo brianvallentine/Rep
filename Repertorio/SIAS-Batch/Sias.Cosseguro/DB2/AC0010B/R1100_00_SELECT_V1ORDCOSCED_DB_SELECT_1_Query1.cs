@@ -1,0 +1,61 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Cosseguro.DB2.AC0010B
+{
+    public class R1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1 : QueryBasis<R1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT ORDEM_CEDIDO
+            INTO :V1ORDC-ORD-CEDIDO
+            FROM SEGUROS.V1ORDECOSCED
+            WHERE NUM_APOLICE = :V1HISP-NUM-APOL
+            AND NRENDOS = :V1HISP-NRENDOS
+            AND CODCOSS = :V1APCD-CODCOSS
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT ORDEM_CEDIDO
+											FROM SEGUROS.V1ORDECOSCED
+											WHERE NUM_APOLICE = '{this.V1HISP_NUM_APOL}'
+											AND NRENDOS = '{this.V1HISP_NRENDOS}'
+											AND CODCOSS = '{this.V1APCD_CODCOSS}'";
+
+            return query;
+        }
+        public string V1ORDC_ORD_CEDIDO { get; set; }
+        public string V1HISP_NUM_APOL { get; set; }
+        public string V1HISP_NRENDOS { get; set; }
+        public string V1APCD_CODCOSS { get; set; }
+
+        public static R1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1 Execute(R1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1 r1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1)
+        {
+            var ths = r1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override R1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new R1100_00_SELECT_V1ORDCOSCED_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.V1ORDC_ORD_CEDIDO = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT NUM_CONTRATO, COD_PRODUTO, DTH_ASSINATURA FROM SEGUROS.EF_CONTRATO WHERE T1.NUM_CONTRATO = :NUM_CONTRATO END SQL", "Inputs": [{"Field": ":NUM_CONTRATO", "Type": "string"}], "Outputs": [{"Field": "NUM_CONTRATO", "Type": "string"}, {"Field": "COD_PRODUTO", "Type": "string"}, {"Field": "DTH_ASSINATURA", "Type": "string"}], "Endpoint": "sioda/siodp029"}

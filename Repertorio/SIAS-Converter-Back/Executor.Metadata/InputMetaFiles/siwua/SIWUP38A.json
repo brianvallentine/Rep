@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(MIN(DTINIVIG),'1900-01-01') FROM seguros.v0endosso WHERE NUM_APOLICE = :NUM_APOLICE AND CODSUBES IN (:CODSUBES,0) AND TIPO_ENDOSSO IN ('0','1','3','4','5') END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":CODSUBES", "Type": "string"}], "Outputs": [], "Endpoint": "siwua/siwup38a"}

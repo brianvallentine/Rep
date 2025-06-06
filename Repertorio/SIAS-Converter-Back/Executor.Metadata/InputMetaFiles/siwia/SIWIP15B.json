@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.SINISTRO_HISTORICO SET OCORR_HISTORICO = :OCORR_HISTORICO WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND COD_OPERACAO IN (2,28) END SQL", "Inputs": [{"Field": ":OCORR_HISTORICO", "Type": "string"}, {"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [], "Endpoint": "siwia/siwip15b"}

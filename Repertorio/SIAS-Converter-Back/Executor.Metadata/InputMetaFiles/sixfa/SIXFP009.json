@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT NUM_CONTRATO, NUM_APOLICE, NUM_RAMO_EMISSOR FROM SEGUROS.EF_APOLICE WHERE T1.NUM_CONTRATO = :NUM_CONTRATO END SQL", "Inputs": [{"Field": ":NUM_CONTRATO", "Type": "string"}], "Outputs": [{"Field": "NUM_CONTRATO", "Type": "string"}, {"Field": "NUM_APOLICE", "Type": "string"}, {"Field": "NUM_RAMO_EMISSOR", "Type": "string"}], "Endpoint": "sixfa/sixfp009"}

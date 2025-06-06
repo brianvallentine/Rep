@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT FUNCAO_OPERACAOCOD_OPERACAO\nFROM SEGUROS.GE_OPERACAO\n \nWHERE COD_OPERACAO = :COD_OPERACAO\nAND       IDE_SISTEMA      = 'SI'\n/\n END SQL", "Inputs": [{"Field": ":COD_OPERACAO", "Type": "string"}], "Outputs": [{"Field": "FUNCAO_OPERACAO", "Type": "string"}, {"Field": "COD_OPERACAO", "Type": "string"}], "Endpoint": "sih4a/SIH4P996"}

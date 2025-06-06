@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DES_EMAIL\nFROM SEGUROS.USUARIOS\n \nWHERE COD_USUARIO = :COD_USUARIO\n/\n END SQL", "Inputs": [{"Field": ":COD_USUARIO", "Type": "string"}], "Outputs": [{"Field": "DES_EMAIL", "Type": "string"}], "Endpoint": "sizba/SIZBPS21I"}

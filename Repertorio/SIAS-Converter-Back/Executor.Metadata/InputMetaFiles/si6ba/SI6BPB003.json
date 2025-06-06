@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT SUM(val_operacao) FROM seguros.v0histsini WHERE num_Apol_sinistro = :NUM_APOL_SINISTRO AND operacao IN (1181, 1182, 1183, 1184) AND situacao <> '2' END SQL", "Inputs": [":NUM_APOL_SINISTRO"], "Outputs": ["SUM(val_operacao)"]}

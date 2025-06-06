@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT char(DATA_INIVIGENCIA,local), char(DATA_TERVIGENCIA,local) FROM SEGUROS.V1BENEFICIA WHERE num_certificado = :NUM_CERTIFICADO AND data_tervigencia = '1999-12-31' ORDER BY 1 DESC END SQL", "Inputs": [":NUM_CERTIFICADO"], "Outputs": ["char(DATA_INIVIGENCIA,local)", "char(DATA_TERVIGENCIA,local)"]}

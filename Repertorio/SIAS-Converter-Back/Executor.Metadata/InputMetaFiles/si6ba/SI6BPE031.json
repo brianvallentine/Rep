@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.MOVTO_DEBITOCC_CEF SET SITUACAO_COBRANCA = :SITUACAO_COBRANCA WHERE NUM_APOLICE = :NUM_APOLICE AND SITUACAO_COBRANCA = 'C' END SQL", "Inputs": [{"Field": ":SITUACAO_COBRANCA", "Type": "string"}, {"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [], "Endpoint": "si6ba/si6bpe031"}

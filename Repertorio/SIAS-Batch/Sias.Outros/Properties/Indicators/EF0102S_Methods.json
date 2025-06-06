@@ -1,0 +1,122 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 0,
+    "Deletes": 0,
+    "Selects": 1,
+    "Cursors": 0,
+    "Procedures": 0,
+    "All": 1
+  },
+  "MethodDescription": {
+    "ProgramName": "EF0102S",
+    "Quantity": 9,
+    "Methods": [
+      {
+        "EntraceMethod": false,
+        "Lines": 4,
+        "Name": "USING",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": true,
+        "Lines": 1,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "IntBasis LS_V0HAB01_NUM_CONTRATO_P",
+          "StringBasis LS_SINI_DATORR_P",
+          "IntBasis LS_SQLCODE_P",
+          "StringBasis LS_V0SEGU_NOME_SEGURADO_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "B0000_PROCESSAMENTO"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 3,
+        "Name": "B0000_PROCESSAMENTO",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "A0000_INICIALIZACAO",
+          "A9999_EXIT",
+          "D0000_PROCESSAMENTO_DB2",
+          "D9999_EXIT"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "B9999_EXIT",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 4,
+        "Name": "A0000_INICIALIZACAO",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "A9999_EXIT",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 2,
+        "Name": "D0000_PROCESSAMENTO_DB2",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "D0000_PROCESSAMENTO_DB2_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "D9999_EXIT",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "DclDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "FilesDescription": {
+    "Quantity": 0,
+    "Names": []
+  }
+}

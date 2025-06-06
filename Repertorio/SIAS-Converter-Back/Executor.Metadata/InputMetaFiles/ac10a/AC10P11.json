@@ -1,0 +1,20 @@
+{
+  "Code": "EXEC SQL  SELECT ORDLIDER\nFROM seguros.v1cossegace\n \nwhere   num_Apolice = :NUM_APOLICE\n  and   nrendos     = :NRENDOS\n/\n END SQL",
+  "Inputs": [
+    {
+      "Field": ":NUM_APOLICE",
+      "Type": "string"
+    },
+    {
+      "Field": ":NRENDOS",
+      "Type": "string"
+    }
+  ],
+  "Outputs": [
+    {
+      "Field": "ORDLIDER",
+      "Type": "string"
+    }
+  ],
+  "Endpoint": "ac10a/AC10P11"
+}

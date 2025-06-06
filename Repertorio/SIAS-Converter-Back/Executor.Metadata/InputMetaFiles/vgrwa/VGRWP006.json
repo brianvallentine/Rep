@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT SIT_REGISTRO, NUM_APOLICE, COD_SUBGRUPO FROM seguros.v1seguravg WHERE num_certificado = :NUM_CERTIFICADO AND tipo_segurado = '1' END SQL", "Inputs": [":NUM_CERTIFICADO"], "Outputs": ["SIT_REGISTRO", "NUM_APOLICE", "COD_SUBGRUPO"]}

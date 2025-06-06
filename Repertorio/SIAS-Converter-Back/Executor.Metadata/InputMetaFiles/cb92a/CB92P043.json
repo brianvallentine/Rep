@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DESCR_ERROTIPO_ERRO\nFROM seguros.v0erros_bilhete\n \nwhere cod_erro = :COD_ERRO\n/ END SQL", "Inputs": [{"Field": ":COD_ERRO", "Type": "string"}], "Outputs": [{"Field": "DESCR_ERRO", "Type": "string"}, {"Field": "TIPO_ERRO", "Type": "string"}], "Endpoint": "cb92a/CB92P043"}

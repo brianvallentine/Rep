@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT PCIOF FROM seguros.v1ramoind WHERE ramo = :RAMO AND dtinivig <= :DTINIVIG AND dttervig >= :DTINIVIG END SQL", "Inputs": [{"Field": ":RAMO", "Type": "string"}, {"Field": ":DTINIVIG", "Type": "string"}], "Outputs": [{"Field": "PCIOF", "Type": "string"}], "Endpoint": "cb51a/cb51p058"}

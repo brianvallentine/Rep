@@ -1,0 +1,20 @@
+{
+    "Code": "EXEC SQL  SELECT CONGENER, SITUACAO\nFROM seguros.v1congenere\n \nWHERE\n  congener = :CONGENER\n/\n END SQL",
+    "Inputs": [
+        {
+            "Field": ":CONGENER",
+            "Type": "string"
+        }
+    ],
+    "Outputs": [
+        {
+            "Field": "CONGENER",
+            "Type": "string"
+        },
+        {
+            "Field": "SITUACAO",
+            "Type": "string"
+        }
+    ],
+    "Endpoint": "ac01a/AC01P03"
+}

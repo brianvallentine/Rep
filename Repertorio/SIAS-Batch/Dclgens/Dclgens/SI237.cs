@@ -1,0 +1,18 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Dclgens
+{
+    public class SI237 : VarBasis
+    {
+        /*"01  DCLSI-MOVTO-PGTO-COB.*/
+        public SI237_DCLSI_MOVTO_PGTO_COB DCLSI_MOVTO_PGTO_COB { get; set; } = new SI237_DCLSI_MOVTO_PGTO_COB();
+
+    }
+}

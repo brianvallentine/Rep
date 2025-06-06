@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT SIGLA_TIPO_CARTA, TAMANHO_MAX_TEXTO FROM seguros.ge_carta_tipo WHERE COD_TIPO_CARTA = :COD_TIPO_CARTA END SQL", "Inputs": [{"Field": ":COD_TIPO_CARTA", "Type": "string"}], "Outputs": [{"Field": "SIGLA_TIPO_CARTA", "Type": "string"}, {"Field": "TAMANHO_MAX_TEXTO", "Type": "string"}], "Endpoint": "sim9a/sim9p011"}

@@ -1,0 +1,84 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 0,
+    "Deletes": 0,
+    "Selects": 0,
+    "Cursors": 0,
+    "Procedures": 0,
+    "All": 0
+  },
+  "MethodDescription": {
+    "ProgramName": "RSGESVDT",
+    "Quantity": 5,
+    "Methods": [
+      {
+        "EntraceMethod": false,
+        "Lines": 6,
+        "Name": "USING",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": true,
+        "Lines": 1,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "RSGEWVDT RSGEWVDT_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "R0001_INICIO_SECTION"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 56,
+        "Name": "R0001_INICIO_SECTION",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "R0001_10_DATA_CORRETA",
+          "R0001_99_FIM"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 2,
+        "Name": "R0001_10_DATA_CORRETA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "R0001_99_FIM",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 2,
+    "Names": [
+      "RSGEWDTA",
+      "RSGEWVDT"
+    ]
+  },
+  "DclDescription": {
+    "Quantity": 0,
+    "Names": []
+  },
+  "FilesDescription": {
+    "Quantity": 0,
+    "Names": []
+  }
+}

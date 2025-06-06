@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DATNEG FROM seguros.v1histsini WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND OPERACAO IN (1181, 1182, 1183, 1184) AND situacao IN ('0', '1') END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "DATNEG", "Type": "string"}], "Endpoint": "siwua/siwup36"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT CODPDT FROM seguros.v1produtor WHERE cgccpf = :CGCCPF AND codpdt ^= :CODPDT END SQL", "Inputs": [{"Field": ":CGCCPF", "Type": "string"}, {"Field": ":CODPDT", "Type": "string"}], "Outputs": [{"Field": "CODPDT", "Type": "string"}], "Endpoint": "co80a/co80p19"}

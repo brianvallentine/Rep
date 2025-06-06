@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT SIGLA_FILIAL\nFROM seguros.filial_habit\n \nWHERE COD_CLIENTE = :COD_CLIENTE\n  AND COD_FILIAL  = :COD_FILIAL\n/\n END SQL", "Inputs": [{"Field": ":COD_CLIENTE", "Type": "string"}, {"Field": ":COD_FILIAL", "Type": "string"}], "Outputs": [{"Field": "SIGLA_FILIAL", "Type": "string"}], "Endpoint": "sioaa/SIOAP071"}

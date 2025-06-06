@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0coberapol T1 SET TIMESTAMP = current TIMESTAMP, SITUACAO = '0' WHERE num_apolice = :NUM_APOLICE AND ramofr = :RAMOFR AND situacao = '2' END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":RAMOFR", "Type": "string"}], "Outputs": [], "Endpoint": "sizba/sizbp78a"}

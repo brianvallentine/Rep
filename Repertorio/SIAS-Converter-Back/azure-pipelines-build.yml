@@ -1,0 +1,339 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  siasBatchRepoPath: '$(Agent.BuildDirectory)\SIAS-Batch'
+  mainRepoPath: '$(Agent.BuildDirectory)\Converter'
+  toolsRepoPath: '$(Agent.BuildDirectory)\Tools'
+  asisRepoPath: '$(Agent.BuildDirectory)\CVP-AsIs'
+  transpilerProjectName: Executor.ConsoleApp
+
+stages:
+- stage: Build_And_Test
+  displayName: 'Build and Test'
+  jobs:
+  - job: ProcessCode
+    steps:
+    - task: UseDotNet@2
+      displayName: 'Install .NET 8'
+      inputs:
+        version: 8.x
+        performMultiLevelLookup: true
+
+    # Step 1: Main repository is already cloned by default in $(Build.SourcesDirectory)
+    - checkout: self
+      path: 'Converter'
+      fetchDepth: 0  # Fetch all history for creating proper branches later
+      displayName: 'Checkout Main Repository'
+    
+    # Step 2: Clone SIAS-Batch repository
+    - checkout: 'git://$(System.TeamProject)/SIAS-Batch'
+      path: 'SIAS-Batch'
+
+    # Step 3: Clone Tools repository
+    - checkout: 'git://$(System.TeamProject)/Tools'
+      path: 'Tools'
+
+    # Step 3: Clone Tools repository
+    - checkout: 'git://$(System.TeamProject)/CVP - As is'
+      sparseCheckoutDirectories: 'COB2P/'
+      fetchFilter: blob:none
+      path: 'CVP-AsIs'
+
+    # Step 4: Execute custom program to update app.json
+    - task: DotNetCoreCLI@2
+      displayName: 'Build Converter Adjust Tool'
+      inputs:
+        command: 'build'
+        projects: '$(Agent.BuildDirectory)\Tools\Pipeline\AdjustConverterRetranspileDeliveredPrograms\AdjustConverterRetranspileDeliveredPrograms.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - pwsh: Get-ChildItem -Path '$(mainRepoPath)' -recurse
+
+#    - script: $(toolsRepoPath)\Pipeline\AdjustConverterRetranspileDeliveredPrograms\bin\$(buildConfiguration)\net8.0\AdjustConverterRetranspileDeliveredPrograms.exe --modifyAppJson '$(mainRepoPath)\Executor.Console\app.json' '$(siasBatchRepoPath)'
+#      displayName: 'Run Coverter Adjust Tool'
+#      continueOnError: false
+
+    # Step 4: Execute custom program to check inconsistencies
+    - task: DotNetCoreCLI@2
+      displayName: 'Build Code Analyzer Tool'
+      inputs:
+        command: 'build'
+        projects: '$(Agent.BuildDirectory)\Tools\Pipeline\CodeAnalysisGate\CodeAnalysisGate.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - task: PowerShell@2
+      displayName: 'Run Code Analyzer Tool - Cobol'
+      inputs:
+        targetType: 'inline'
+        script: |
+          & dotnet '$(toolsRepoPath)\Pipeline\CodeAnalysisGate\bin\$(buildConfiguration)\net8.0\CodeAnalysisGate.dll' --cobol-path '$(asisRepoPath)\COB2P' --SourceCodeEnconding
+        failOnStderr: true
+
+    - task: PowerShell@2
+      displayName: 'Run Converter Adjust Tool'
+      inputs:
+        targetType: 'inline'
+        script: |
+          & dotnet '$(toolsRepoPath)\Pipeline\AdjustConverterRetranspileDeliveredPrograms\bin\$(buildConfiguration)\net8.0\AdjustConverterRetranspileDeliveredPrograms.dll' --modifyAppJson '$(mainRepoPath)\Executor.Console\app.json' '$(siasBatchRepoPath)'
+        failOnStderr: false
+    
+    # Step 6: Build the solution
+    - task: DotNetCoreCLI@2
+      displayName: 'Build Converter Solution'
+      inputs:
+        command: 'build'
+        projects: '$(mainRepoPath)\$(solution)'
+        arguments: '--configuration $(buildConfiguration)'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Publish Cobol Transpilation Tool'
+      inputs:
+        command: publish
+        publishWebProjects: false
+        projects: '$(mainRepoPath)\Executor.Console\$(transpilerProjectName).csproj'
+        arguments: '--self-contained --runtime win-x64 -c $(BuildConfiguration) -o $(Build.ArtifactStagingDirectory)\Converter'
+        zipAfterPublish: false
+
+#    - script: mkdir $(Build.ArtifactStagingDirectory)/Converter/Executor.Console/OutputFiles &&
+#              chmod -R 777 $(Build.ArtifactStagingDirectory)/Converter/Executor.Console && 
+#              setfacl -d -R -m user::rwx -m group::rwx -m other::rwx $(Build.ArtifactStagingDirectory)/Converter/Executor.Console &&
+#              mkdir $(Build.ArtifactStagingDirectory)/Converter/Executor.Console/OutputFiles/CODE &&
+#              touch $(Build.ArtifactStagingDirectory)/Converter/Executor.Console/OutputFiles/CODE/test.txt
+#      displayName: 'Create Output Folder and set permissions'
+#      continueOnError: false
+
+    - pwsh: Get-ChildItem -Path '$(Build.ArtifactStagingDirectory)' -recurse
+
+#    - script: $(Build.ArtifactStagingDirectory)\Converter\Executor.Console\$(transpilerProjectName) --pipeline
+#      displayName: 'Execute Cobol Transpilation Tool'
+#      workingDirectory: $(Build.ArtifactStagingDirectory)\Converter\Executor.Console
+#      continueOnError: false
+
+    - task: PowerShell@2
+      displayName: 'Execute Cobol Transpilation Tool and capture output'
+      inputs:
+        targetType: 'inline'
+        script: |
+          $exePath = "$(Build.ArtifactStagingDirectory)\Converter\Executor.Console\$(transpilerProjectName)"
+          $outputFile = "$(transpilerProjectName).log"
+          Write-Host "Running EXE: $exePath"
+          & $exePath --pipeline 2>&1 | Tee-Object -FilePath $outputFile
+        workingDirectory: $(Build.ArtifactStagingDirectory)\Converter\Executor.Console
+
+#    - script: $(toolsRepoPath)\Pipeline\AdjustConverterRetranspileDeliveredPrograms\bin\$(buildConfiguration)\net8.0\AdjustConverterRetranspileDeliveredPrograms.exe --parseConverterLog '$(Build.ArtifactStagingDirectory)\Converter\Executor.Console\$(transpilerProjectName).log'
+#      displayName: 'Run Coverter Adjust Tool'
+#      continueOnError: false
+
+    # Publish all artifacts
+    - task: PublishPipelineArtifact@1
+      displayName: 'Publish Build Artifacts'
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)\Converter\Executor.Console\OutputFiles\Sias'
+        artifact: 'RawConverterOutput'
+
+    - task: PowerShell@2
+      displayName: 'Run Converter Adjust Tool'
+      inputs:
+        targetType: 'inline'
+        script: |
+          & dotnet '$(toolsRepoPath)\Pipeline\AdjustConverterRetranspileDeliveredPrograms\bin\$(buildConfiguration)\net8.0\AdjustConverterRetranspileDeliveredPrograms.dll' --parseConverterLog '$(Build.ArtifactStagingDirectory)\Converter\Executor.Console\$(transpilerProjectName).log'
+        failOnStderr: true
+    
+
+    # Publish all artifacts
+    - task: PublishPipelineArtifact@1
+      displayName: 'Publish Build Artifacts'
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)\Converter\Executor.Console\OutputFiles\Sias'
+        artifact: 'RawConverterOutput'
+
+    - task: PowerShell@2
+      displayName: 'Run Code Analyzer Tool'
+      inputs:
+        targetType: 'inline'
+        script: |
+          & dotnet '$(toolsRepoPath)\Pipeline\CodeAnalysisGate\bin\$(buildConfiguration)\net8.0\CodeAnalysisGate.dll' '$(Build.ArtifactStagingDirectory)\Converter\Executor.Console\OutputFiles\Sias' '$(asisRepoPath)\COB2P' --CobolConverter --FetchDataCommented --UnreferenciedProgramMethods --MissingProgramsInControllers
+        failOnStderr: true
+
+    - task: PowerShell@2
+      condition: always()
+      displayName: 'Run File Merger Tool'
+      inputs:
+        targetType: 'inline'
+        script: |
+          & dotnet "$(toolsRepoPath)\Pipeline\AdjustConverterRetranspileDeliveredPrograms\bin\$(buildConfiguration)\net8.0\AdjustConverterRetranspileDeliveredPrograms.dll" --mergeFolders -l "$(Build.ArtifactStagingDirectory)\Converter\Executor.Console\OutputFiles\Sias" -r "$(siasBatchRepoPath)" -o "$(Build.ArtifactStagingDirectory)\Merge" --config "$(toolsRepoPath)\Pipeline\AdjustConverterRetranspileDeliveredPrograms\bin\$(buildConfiguration)\net8.0\Tools\merge-config.json" --verbose 
+        failOnStderr: true
+
+
+    # Publish all artifacts
+    - task: PublishPipelineArtifact@1
+      condition: always()
+      displayName: 'Publish Merge Artifacts'
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)\Merge'
+        artifact: 'MergeConverterOutput'
+
+##
+#Aqui precisa refatorar pra evitar duplicidade
+##
+    #Copy appSettings to Test Project
+    - task: CopyFiles@2
+      condition: always()
+      displayName: Copy IA_ConverterCommons/appSettings.json to FileTests.Test
+      inputs:
+        SourceFolder: '$(Build.ArtifactStagingDirectory)\Merge\IA_ConverterCommons'
+        Contents: 'appSettings.json'
+        TargetFolder: '$(Build.ArtifactStagingDirectory)\Merge\FileTests.Test'
+
+
+    - task: PowerShell@2
+      condition: always()
+      displayName: Modifying CSharp generated files 
+      inputs:
+        targetType: 'inline'
+        script: |
+          function Replace-TextInFile {
+            param (
+              [string]$FilePath,
+              [string]$OldText,
+              [string]$NewText,
+              [string]$Encoding = "UTF8"
+            )
+            if (Test-Path $FilePath) {
+                Write-Host "Replacing '$OldText' with '$NewText' in $FilePath using $Encoding encoding..."
+                (Get-Content -Path $FilePath -Encoding $Encoding) -replace [regex]::Escape($OldText), $NewText | Set-Content -Path $FilePath -Encoding $Encoding
+            } else {
+                Write-Warning "File not found: $FilePath"
+            }
+          }
+          
+          Replace-TextInFile -FilePath "$(Build.ArtifactStagingDirectory)\Merge\Sias.Loterico\Code\LT3159S.cs" -OldText "Execute(LBLT3159_LT3159S_AREA_PARAMETROS" -NewText "Execute(Copies.LBLT3159_LT3159S_AREA_PARAMETROS"
+          Replace-TextInFile -FilePath "$(Build.ArtifactStagingDirectory)\Merge\Sias.Loterico\Model\LT3159SModel.cs" -OldText "LBLT3159_LT3159S_AREA_PARAMETROS" -NewText "Copies.LBLT3159_LT3159S_AREA_PARAMETROS"
+
+
+    #Restore Solution
+    - task: DotNetCoreCLI@2
+      condition: always()
+      displayName: Restore
+      inputs:
+        command: restore
+        projects: '$(Build.ArtifactStagingDirectory)\Merge\Sias.sln'
+
+    #Build Solution
+    - task: DotNetCoreCLI@2
+      condition: always()
+      displayName: Build
+      inputs:
+        projects: '$(Build.ArtifactStagingDirectory)\Merge\Sias.sln'
+        arguments: '--configuration $(BuildConfiguration)'
+
+    #Run Powershell Script
+    - task: PowerShell@2
+      #condition: and(succeeded(), eq(variables['executeUnitTest'], 'True'))
+      condition: always()
+      displayName: Normalize Test Files
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Defina a variável de ambiente que contém o caminho da pasta
+          $env:SourceFolder = "$(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\FILES"
+          $env:TargetFolder = "$(Agent.TempDirectory)\TestFiles"
+
+          New-Item -Path "$env:TargetFolder" -ItemType "directory"
+          
+          # Função para extrair arquivos ZIP
+          function Extract-ZipFile {
+              param(
+                  [string]$zipFilePath,
+                  [string]$destinationFolder
+              )
+          
+              Add-Type -AssemblyName System.IO.Compression.FileSystem
+              [System.IO.Compression.ZipFile]::ExtractToDirectory($zipFilePath, $destinationFolder)
+          }
+          
+          # Obter todos os arquivos e pastas recursivamente
+          $files = Get-ChildItem -Path $env:SourceFolder -Recurse
+          
+          foreach ($file in $files) {
+              if ($file.PSIsContainer) {
+                  continue
+              }
+          
+            Write-Output "Processando $($file.FullName)"
+              
+            # Verifique se o arquivo é um ZIP
+              if ($file.Extension -eq ".zip") {
+                  try {
+                      # Extrair arquivos ZIP diretamente na pasta da variável de ambiente
+                      Extract-ZipFile -zipFilePath $file.FullName -destinationFolder $env:TargetFolder
+                  } catch {
+                      Write-Output "Erro ao extrair $($file.FullName) $_"
+                  }
+              } else {
+                  # Remover aspas simples do início e do final do nome do arquivo
+                  $newFileName = $file.Name -replace "^[']+", "" -replace "[']+$", ""
+          
+                  # Mover o arquivo para a pasta da variável de ambiente com o novo nome
+                  $destinationPath = Join-Path -Path $env:TargetFolder -ChildPath $newFileName
+          
+                  try {
+                      Move-Item -Path $file.FullName -Destination $destinationPath
+                  } catch {
+                      Write-Output "Erro ao mover $($file.FullName) para $destinationPath $_"
+                  }
+              }
+          }
+          & ls -Rlart $env:TargetFolder
+          & cat $(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\appSettings.json
+
+    #Run Powershell Script
+    - task: PowerShell@2
+      #condition: eq(variables['executeUnitTest'], 'True')
+      condition: always()
+      displayName: Update FileTests.Test appSettings.json
+      inputs:
+        targetType: 'inline'
+        script: |
+          $config = Get-Content "appSettings.json" -Raw|ConvertFrom-Json
+          
+          $config.FileFolderPath = "$(Agent.TempDirectory)\TestFiles"
+          
+          $config|ConvertTo-Json |Set-Content "appSettings.json"
+        workingDirectory: '$(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\bin\$(buildConfiguration)\net8.0'
+
+    - script: dotnet exec FileTests.Test.dll --filter-query "/[(TestType=UnitTesting)]" --report-xunit --report-xunit-filename "TestsResults.xml" --stop-on-fail off --parallel none --diagnostic --hangdump --hangdump-timeout 5m --culture "pt-BR" --max-threads 1
+      #condition: eq(variables['executeUnitTest'], 'True')
+      condition: always()
+      displayName: 'Run Tests'
+      workingDirectory: '$(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\bin\$(buildConfiguration)\net8.0'
+      continueOnError: true
+      env:
+        FileFolderPath: $(Agent.TempDirectory)\TestFiles
+        ASPNETCORE_ENVIRONMENT: Production
+        LANG: pt_BR.UTF-8
+        LANGUAGE: pt_BR:pt
+        LC_ALL: pt_BR.UTF-8
+        DB2_CLI_DRIVER_INSTALL_PATH: $(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\bin\$(buildConfiguration)\net8.0\clidriver
+        LD_LIBRARY_PATH: $(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\bin\$(buildConfiguration)\net8.0\clidriver\lib:$(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\bin\$(buildConfiguration)\net8.0\clidriver\lib\icc
+
+    - task: PublishTestResults@2
+      displayName: 'Publish Tests Results'
+      #condition: eq(variables['executeUnitTest'], 'True')
+      inputs:
+        testResultsFormat: 'XUnit'
+        testResultsFiles: '**/TestsResults.xml'
+        searchFolder: '$(Build.ArtifactStagingDirectory)\Merge\FileTests.Test\bin\$(buildConfiguration)\net8.0'
+        failTaskOnFailedTests: true
+        failTaskOnFailureToPublishResults: true
+        failTaskOnMissingResultsFile: true
+        testRunTitle: 'SIAS-Converter-Back - Unit Testing - Retranspilation'
+        buildPlatform: '$(buildPlatform)'
+        buildConfiguration: '$(buildConfiguration)'

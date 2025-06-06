@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT TIPO_VINCULO\nFROM seguros.v1funciocef\n \nWHERE NUM_MATRICULA = :NUM_MATRICULA\nAND   TIPO_VINCULO = 'EMPREGADO CEF'\n/\n END SQL", "Inputs": [{"Field": ":NUM_MATRICULA", "Type": "string"}], "Outputs": [{"Field": "TIPO_VINCULO", "Type": "string"}], "Endpoint": "vgfaa/VGFAP220"}

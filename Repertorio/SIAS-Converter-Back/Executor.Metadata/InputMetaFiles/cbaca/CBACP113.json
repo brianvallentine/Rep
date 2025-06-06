@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DIFPRM FROM seguros.v1parametro WHERE DTINIVIG <= :DTINIVIG AND DTTERVIG >= :DTINIVIG AND COD_EMPRESA = :COD_EMPRESA END SQL", "Inputs": [{"Field": ":DTINIVIG", "Type": "string"}, {"Field": ":COD_EMPRESA", "Type": "string"}], "Outputs": [{"Field": "DIFPRM", "Type": "string"}], "Endpoint": "cbaca/cbacp113"}

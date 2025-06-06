@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(COUNT(*), 0) FROM SEGUROS.SI_RESSARC_PARCELA WHERE NUM_NOSSO_TITULO = :NUM_NOSSO_TITULO AND COD_OPERACAO = :COD_OPERACAO END SQL", "Inputs": [{"Field": ":NUM_NOSSO_TITULO", "Type": "string"}, {"Field": ":COD_OPERACAO", "Type": "string"}], "Outputs": [], "Endpoint": "cbb1a/cbb1p011"}

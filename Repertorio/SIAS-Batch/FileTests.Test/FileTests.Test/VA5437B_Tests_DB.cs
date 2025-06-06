@@ -1,0 +1,83 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+using Xunit;
+using Copies;
+using Code;
+using static Code.VA5437B;
+
+namespace FileTests.Test_DB
+{
+    [Collection("VA5437B_Tests_DB")]
+    [Trait(IA_ConverterCommons.Utils.TestTraits.TestType.Name, IA_ConverterCommons.Utils.TestTraits.TestType.Values.DatabaseTesting)]
+    [Trait(IA_ConverterCommons.Utils.TestTraits.Package.Name, IA_ConverterCommons.Utils.TestTraits.Package.Values.Package02)]
+    public class VA5437B_Tests_DB
+    {
+
+        [Fact]
+        public static void VA5437B_Database()
+        {
+            var program = new VA5437B();
+            AppSettings.TestSet.DB_Test.Is_DB_Test = true;
+            try { /*1*/ program.R0100_00_SELECT_SISTEMAS_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*2*/ program.R0200_00_CARREGA_FAIXACEP_DB_DECLARE_1(); program.R0200_00_CARREGA_FAIXACEP_DB_OPEN_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*3*/ program.R0300_00_CARREGA_COBMENVG_DB_DECLARE_1(); program.R0300_00_CARREGA_COBMENVG_DB_OPEN_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*4*/ program.R0400_00_CARREGA_FCPLANO_DB_DECLARE_1(); program.R0400_00_CARREGA_FCPLANO_DB_OPEN_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*5*/ program.R0500_00_DECLARE_AGENCCEF_DB_DECLARE_1(); program.R0500_00_DECLARE_AGENCCEF_DB_OPEN_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*6*/ program.R0900_00_DECLARE_RELATORI_DB_DECLARE_1(); program.R0900_00_DECLARE_RELATORI_DB_OPEN_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*7*/ program.R1120_00_DECLARE_TITFEDCA_DB_DECLARE_1(); program.R1120_00_DECLARE_TITFEDCA_DB_OPEN_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*8*/
+                program.RELATORI.DCLRELATORIOS.RELATORI_TIMESTAMP.Value = "2024-10-15 17:17:40.456";
+                program.R1000_00_PROCESSA_INPUT_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*9*/
+
+                program.CLIENTES.DCLCLIENTES.CLIENTES_DATA_NASCIMENTO.Value = "2000-10-10";
+                program.R1000_00_PROCESSA_INPUT_DB_SELECT_2(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*10*/ program.R1010_00_SELECT_SEGURVGA_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try
+            { /*11*/
+                program.SEGURVGA.DCLSEGURADOS_VGAP.SEGURVGA_DATA_INIVIGENCIA.Value = "2020-01-01";
+                program.R1015_00_SELECT_SEGURVGA_HIST_DB_SELECT_1();
+            }
+            catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*12*/ program.R1100_00_SELECT_OPCPAGVI_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*13*/ program.R2400_00_BENEFICIARIOS_DB_DECLARE_1(); program.R2400_00_BENEFICIARIOS_DB_OPEN_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*14*/ program.R1145_00_SELECT_PROC_SUSEP_CAP_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*15*/ program.R1200_00_SELECT_CLIENTES_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try
+            { /*16*/
+                program.WS_DATA_OPER_CORR_MONET.Value = "2020-01-01";
+                program.R1250_00_CALCULA_IDADE_CLIENTE_DB_SELECT_1();
+            }
+            catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*17*/ program.R1210_00_SELECT_EMAIL_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*18*/ program.R1300_00_SELECT_ENDERECO_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*19*/ program.R1350_00_SELECT_CORREC_MONET_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*20*/ program.R1400_00_SELECT_HISCOBPR_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*21*/ program.R1500_00_SELECT_AGENCCEF_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*22*/ program.R1600_00_SELECT_APOLICE_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*23*/ program.R1640_00_SELECT_ENDOSSOS_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*24*/ program.R2051_00_SELECT_PROP_FIDELIZ_1_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*25*/ program.R2052_00_SELECT_PROP_FIDELIZ_2_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*26*/ program.R2203_VERIFICA_CARENCIAS_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*27*/ program.R2205_00_SELECT_USUARIOS_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*28*/ program.R2230_00_SELECT_APOLICE_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*29*/ program.R2315_00_SELECT_V0MULTIMENS_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*30*/ program.R2500_00_UPDATE_RELATORI_DB_UPDATE_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*31*/ program.R2700_00_SELECT_PRODUVG_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*32*/ program.R2710_00_SELECT_ESTIP_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*33*/ program.R2715_00_SELECT_SUBESTIP_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*34*/ program.R2750_00_SELECT_HISCOBPR_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*35*/ program.R2760_00_SELECT_PRODUTO_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*36*/ program.R2800_00_SELECT_SEGURVGA_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*37*/ program.R2910_00_OBTEM_NUMERACAO_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*38*/ program.R2910_10_INCLUI_RELATORIO_DB_INSERT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+            try { /*39*/ program.R9200_00_PESQUISA_FORMULARIO_DB_SELECT_1(); } catch (Exception ex) { _.ThreatableTestError(ex); }
+        }
+    }
+}

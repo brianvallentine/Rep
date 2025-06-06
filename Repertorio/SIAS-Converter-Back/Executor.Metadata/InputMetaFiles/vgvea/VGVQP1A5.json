@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT NUMMAT\nFROM seguros.v0funcionario\n \n  WHERE  NUMMAT      = :NUMMAT\n    and  cod_empresa = 0\n/\n END SQL", "Inputs": [{"Field": ":NUMMAT", "Type": "string"}], "Outputs": [{"Field": "NUMMAT", "Type": "string"}], "Endpoint": "vgvea/VGVQP1A5"}

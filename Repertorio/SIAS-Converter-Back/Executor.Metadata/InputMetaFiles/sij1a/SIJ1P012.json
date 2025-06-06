@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT LOCALCHAVE, COD_DESLOCAMENTO FROM seguros.si_lvi_rodizio WHERE COD_DESTINATARIO = :COD_DESTINATARIO AND STA_CREDENCIADO = 'A' END SQL", "Inputs": [{"Field": ":COD_DESTINATARIO", "Type": "string"}], "Outputs": [{"Field": "LOCALCHAVE", "Type": "string"}, {"Field": "COD_DESLOCAMENTO", "Type": "string"}], "Endpoint": "sij1a/sij1p012"}

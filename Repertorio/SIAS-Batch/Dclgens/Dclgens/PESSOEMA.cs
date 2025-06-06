@@ -1,0 +1,18 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Dclgens
+{
+    public class PESSOEMA : VarBasis
+    {
+        /*"01  DCLPESSOA-EMAIL.*/
+        public PESSOEMA_DCLPESSOA_EMAIL DCLPESSOA_EMAIL { get; set; } = new PESSOEMA_DCLPESSOA_EMAIL();
+
+    }
+}

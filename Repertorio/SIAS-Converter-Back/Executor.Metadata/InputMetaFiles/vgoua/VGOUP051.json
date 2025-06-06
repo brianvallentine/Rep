@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DTINIVIGDTTERVIG\nFROM seguros.v0coberpropva\n \nWHERE NRCERTIF = :NRCERTIF AND OCORHIST = :OCORHIST\n/\n END SQL", "Inputs": [{"Field": ":NRCERTIF", "Type": "string"}, {"Field": ":OCORHIST", "Type": "string"}], "Outputs": [{"Field": "DTINIVIG", "Type": "string"}, {"Field": "DTTERVIG", "Type": "string"}], "Endpoint": "vgoua/VGOUP051"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DIA_SEMANA, FERIADO FROM seguros.calendario WHERE DATA_seguros.calendario = :DATA_seguros.calendario AND DIA_SEMANA NOT IN ('S', 'D') AND FERIADO <> 'N' WITH UR END SQL", "Inputs": [":DATA_seguros.calendario"], "Outputs": ["DIA_SEMANA", "FERIADO"]}

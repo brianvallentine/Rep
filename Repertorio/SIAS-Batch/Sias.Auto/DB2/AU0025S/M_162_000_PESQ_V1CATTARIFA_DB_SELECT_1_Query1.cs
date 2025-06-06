@@ -1,0 +1,72 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Auto.DB2.AU0025S
+{
+    public class M_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1 : QueryBasis<M_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL SELECT PREBASBT
+            INTO
+            :CATTF-PREBASBT
+            FROM SEGUROS.V1CATTARIFA
+            WHERE CODTAB = :CATTF-CODTAB
+            AND CODPRODU = :CATTF-CODPRODU
+            AND CATTARIF = :CATTF-CATTARIF
+            AND VLPRTXCF BETWEEN
+            :CATTF-VLPRTXCF AND :CATTF-VLPRTXCF1
+            AND DTINIVIG <= :CATTF-DTINIVIG
+            AND DTTERVIG >= :CATTF-DTINIVIG
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT PREBASBT
+											FROM SEGUROS.V1CATTARIFA
+											WHERE CODTAB = '{this.CATTF_CODTAB}'
+											AND CODPRODU = '{this.CATTF_CODPRODU}'
+											AND CATTARIF = '{this.CATTF_CATTARIF}'
+											AND VLPRTXCF BETWEEN
+											'{this.CATTF_VLPRTXCF}' AND '{this.CATTF_VLPRTXCF1}'
+											AND DTINIVIG <= '{this.CATTF_DTINIVIG}'
+											AND DTTERVIG >= '{this.CATTF_DTINIVIG}'";
+
+            return query;
+        }
+        public string CATTF_PREBASBT { get; set; }
+        public string CATTF_VLPRTXCF1 { get; set; }
+        public string CATTF_CODPRODU { get; set; }
+        public string CATTF_CATTARIF { get; set; }
+        public string CATTF_VLPRTXCF { get; set; }
+        public string CATTF_DTINIVIG { get; set; }
+        public string CATTF_CODTAB { get; set; }
+
+        public static M_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1 Execute(M_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1 m_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1)
+        {
+            var ths = m_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override M_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new M_162_000_PESQ_V1CATTARIFA_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.CATTF_PREBASBT = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

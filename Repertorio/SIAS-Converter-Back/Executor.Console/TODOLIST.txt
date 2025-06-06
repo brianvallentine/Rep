@@ -1,0 +1,45 @@
+﻿Fase 1
+
+***** Adicionar menções de Copy para Copybooks
+		**** Verificando se existe
+		**** OBTENDO OU CONVERTENDO
+
+***** Criar códido referente a conversão SQL para Dapper
+***** Criar código referente a conversão CBL para C# Comandos simples
+***** || comandos complexos
+
+**** Comandos SQL do Working Storage Section geralmente cursores, devem ir para uma classe de SQL, estática
+**** Comandos SQL da Procedure Division devem ir para uma classe de SQL estatica
+**** Dados devem ser obtidos posicionalmente, evitando problemas com nomes de variaveis
+
+
+
+            //neste momento obtem todos do Cobol más talvez ainda não tenha todos os copy's
+            //necessário obter os demais copys primeiro
+            //iniciar a conversão pelos copybooks
+
+
+
+
+
+Fase 2
+
+**TODO:
+- Verificar métodos de conversão 
+	[x] - de Move ainda precisa ser melhorado
+	[x] - de Display
+    [x] - de IF
+    [X] - de PARAMETROS
+    [X] - de CALL
+    [~] - de CODE RESTRUCTURATION
+        [~] - de CODE VARIABLES
+           [~] - convert variaveis
+               [X] - working storage
+               [X] - linkage Section
+               [X] - file section
+            -
+        [~] - de CODE COPY's
+            [ ] - alterar modo de fazer os copies, usando Result global para resolver os arquivos de copies
+
+    [ ] - de Compute
+    [ ] - de SQL BETWEEN

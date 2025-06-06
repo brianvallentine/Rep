@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT nrproposfonte\nFROM seguros.v1endosso\n \nwhere     nrpropos   = :NRPROPOS\n  and     fonte      = :FONTE\n/\n END SQL", "Inputs": [{"Field": ":NRPROPOS", "Type": "string"}, {"Field": ":FONTE", "Type": "string"}], "Outputs": [{"Field": "nrpropos", "Type": "string"}, {"Field": "fonte", "Type": "string"}], "Endpoint": "or02a/OR02P65"}

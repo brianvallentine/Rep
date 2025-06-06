@@ -1,0 +1,60 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Bilhetes.DB2.BI1630B
+{
+    public class M_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1 : QueryBasis<M_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT EMAIL
+            INTO :CLIENEMA-EMAIL
+            FROM SEGUROS.CLIENTE_EMAIL
+            WHERE COD_CLIENTE = :WS-COD-CLI-ATU
+            AND SEQ_EMAIL = :WS-SEQ-EMA-ATU
+            WITH UR
+            END-EXEC
+            */
+            #endregion
+            var query = @$"
+				SELECT EMAIL
+											FROM SEGUROS.CLIENTE_EMAIL
+											WHERE COD_CLIENTE = '{this.WS_COD_CLI_ATU}'
+											AND SEQ_EMAIL = '{this.WS_SEQ_EMA_ATU}'
+											WITH UR";
+
+            return query;
+        }
+        public string CLIENEMA_EMAIL { get; set; }
+        public string WS_COD_CLI_ATU { get; set; }
+        public string WS_SEQ_EMA_ATU { get; set; }
+
+        public static M_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1 Execute(M_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1 m_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1)
+        {
+            var ths = m_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override M_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new M_1C000_00_TRATA_EMAIL_DB_SELECT_2_Query1();
+            var i = 0;
+            dta.CLIENEMA_EMAIL = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

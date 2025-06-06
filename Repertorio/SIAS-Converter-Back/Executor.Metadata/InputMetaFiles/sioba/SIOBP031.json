@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COUNT(*)\nFROM SEGUROS.GE_DNE_LOCALIDADE\n \nWHERE NOM_LOCALIDADE LIKE :SIOBW001.W01A0021\n  AND COD_UF      = :COD_UF\n  AND IND_TP_LOCALIDADE = 'M'\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":SIOBW001", "Type": "string"}, {"Field": ":COD_UF", "Type": "string"}], "Outputs": [{"Field": "COUNT", "Type": "string"}], "Endpoint": "sioba/SIOBP031"}

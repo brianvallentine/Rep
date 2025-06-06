@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_ASHAB\nFROM SEGUROS.SI_MOVIMENTO_SINI\n \nWHERE COD_ESTIPULANTE = :COD_ESTIPULANTE\n  AND COD_ASHAB       = :COD_ASHAB\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":COD_ESTIPULANTE", "Type": "string"}, {"Field": ":COD_ASHAB", "Type": "string"}], "Outputs": [{"Field": "COD_ASHAB", "Type": "string"}], "Endpoint": "sioba/SIOBP024"}

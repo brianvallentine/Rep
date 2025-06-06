@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0histsini T1 SET SITUACAO = :SITUACAO, CODUSU = :CODUSU WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND OPERACAO = 2011 AND SITUACAO <> '2' END SQL", "Inputs": [{"Field": ":SITUACAO", "Type": "string"}, {"Field": ":CODUSU", "Type": "string"}, {"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [], "Endpoint": "si12a/si12s020a020"}

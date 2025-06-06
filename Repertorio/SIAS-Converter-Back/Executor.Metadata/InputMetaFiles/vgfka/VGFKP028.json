@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT IDSISTEMCODRELAT\nFROM seguros.v0relatorios\n \nWHERE IDSISTEM = 'VG'\n  AND CODRELAT = 'VG0031B'\n  AND NUM_APOLICE = :NUM_APOLICE\n  AND SITUACAO = '0'\n/\n END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [{"Field": "IDSISTEM", "Type": "string"}, {"Field": "CODRELAT", "Type": "string"}], "Endpoint": "vgfka/VGFKP028"}

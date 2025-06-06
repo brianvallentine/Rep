@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(PRM_TOTAL, 0) FROM seguros.parcela_historico WHERE NUM_APOLICE = :NUM_APOLICE AND NUM_ENDOSSO = :NUM_ENDOSSO AND NUM_PARCELA = 0 AND COD_OPERACAO BETWEEN 200 AND 299 END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":NUM_ENDOSSO", "Type": "string"}], "Outputs": [], "Endpoint": "cb59a/cb58p051"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT NRRCAPCO FROM seguros.v0rcapcomp WHERE FONTE = :FONTE AND NRRCAP = :NRRCAP AND NRRCAPCO > 0 AND SITUACAO = '0' END SQL", "Inputs": [{"Field": ":FONTE", "Type": "string"}, {"Field": ":NRRCAP", "Type": "string"}], "Outputs": [{"Field": "NRRCAPCO", "Type": "string"}], "Endpoint": "cb5ha/cb5hp016"}

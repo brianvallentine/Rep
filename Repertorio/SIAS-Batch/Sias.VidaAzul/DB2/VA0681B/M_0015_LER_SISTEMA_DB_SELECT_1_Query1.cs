@@ -1,0 +1,54 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.VidaAzul.DB2.VA0681B
+{
+    public class M_0015_LER_SISTEMA_DB_SELECT_1_Query1 : QueryBasis<M_0015_LER_SISTEMA_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT DATA_MOV_ABERTO
+            INTO :WSIST-DTMOVABE
+            FROM SEGUROS.SISTEMAS
+            WHERE IDE_SISTEMA = 'VA'
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT DATA_MOV_ABERTO
+											FROM SEGUROS.SISTEMAS
+											WHERE IDE_SISTEMA = 'VA'";
+
+            return query;
+        }
+        public string WSIST_DTMOVABE { get; set; }
+
+        public static M_0015_LER_SISTEMA_DB_SELECT_1_Query1 Execute(M_0015_LER_SISTEMA_DB_SELECT_1_Query1 m_0015_LER_SISTEMA_DB_SELECT_1_Query1)
+        {
+            var ths = m_0015_LER_SISTEMA_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override M_0015_LER_SISTEMA_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new M_0015_LER_SISTEMA_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.WSIST_DTMOVABE = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

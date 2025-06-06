@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT IDSISTEMDTMOVABE\nFROM seguros.v1sistema\n \nwhere\n  idsistem = :IDSISTEM\n;** INSERT ORDER BY CLAUSE HERE **\n/\nORDER BY END SQL", "Inputs": [{"Field": ":IDSISTEM", "Type": "string"}], "Outputs": [{"Field": "IDSISTEM", "Type": "string"}, {"Field": "DTMOVABE", "Type": "string"}], "Endpoint": "cb5wa/CB5WPF4"}

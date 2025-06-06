@@ -1,0 +1,59 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.PessoaFisica.DB2.PF0003B
+{
+    public class R1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1 : QueryBasis<R1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT COD_RAMO
+            INTO :BILHEFAI-COD-RAMO
+            FROM SEGUROS.BILHETE_FAIXA
+            WHERE NUMBIL_INI <= :BILHEFAI-NUMBIL-INI
+            AND NUMBIL_FIM >= :BILHEFAI-NUMBIL-INI
+            WITH UR
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT COD_RAMO
+											FROM SEGUROS.BILHETE_FAIXA
+											WHERE NUMBIL_INI <= '{this.BILHEFAI_NUMBIL_INI}'
+											AND NUMBIL_FIM >= '{this.BILHEFAI_NUMBIL_INI}'
+											WITH UR";
+
+            return query;
+        }
+        public string BILHEFAI_COD_RAMO { get; set; }
+        public string BILHEFAI_NUMBIL_INI { get; set; }
+
+        public static R1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1 Execute(R1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1 r1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1)
+        {
+            var ths = r1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override R1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new R1030_00_SELECT_BILHEFAI_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.BILHEFAI_COD_RAMO = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

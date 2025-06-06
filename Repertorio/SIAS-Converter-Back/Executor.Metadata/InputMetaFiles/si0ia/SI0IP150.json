@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT CDVEICLDESCVEIC\nFROM seguros.v0descrvei\n \nWHERE CDVEICL  =  :CDVEICL\n  AND VERSAO   =  :VERSAO\n/\n END SQL", "Inputs": [{"Field": ":CDVEICL", "Type": "string"}, {"Field": ":VERSAO", "Type": "string"}], "Outputs": [{"Field": "CDVEICL", "Type": "string"}, {"Field": "DESCVEIC", "Type": "string"}], "Endpoint": "si0ia/SI0IP150"}

@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <PlatformTarget>x64</PlatformTarget>
+<IsPackable>false</IsPackable>
+<RunAnalyzersDuringBuild>True</RunAnalyzersDuringBuild>
+<DefineConstants>$(DefineConstants);DB2</DefineConstants>
+<UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="FILES\NovaPasta\**" />
+    <EmbeddedResource Remove="FILES\NovaPasta\**" />
+    <None Remove="FILES\NovaPasta\**" />
+  </ItemGroup>
+  <ItemGroup>
+	  <PackageReference Include="dapper" Version="2.1.24" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.78" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
+   <PackageReference Include="MethodDecorator.Fody" Version="1.1.1" />
+   <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
+   <PackageReference Include="Microsoft.Testing.Extensions.HangDump" Version="1.6.0" />
+   <PackageReference Include="Moq" Version="4.20.70" />
+    <PackageReference Include="IBM.EntityFrameworkCore-lnx" Version="8.0.0.300" Condition="$([MSBuild]::IsOsPlatform('Linux'))" />
+    <PackageReference Include="IBM.EntityFrameworkCore" Version="8.0.0.300" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
+		<PackageReference Include="Net.IBM.Data.Db2-lnx" Version="8.0.0.300" Condition="$([MSBuild]::IsOsPlatform('Linux'))" />
+   <PackageReference Include="Net.IBM.Data.Db2" Version="8.0.0.300" Condition="$([MSBuild]::IsOsPlatform('Windows'))" />
+   <PackageReference Include="newtonsoft.json" Version="13.0.3" />
+   <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+   <PackageReference Include="xunit.v3" Version="1.1.0" />
+   <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2">
+   <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+   <PrivateAssets>all</PrivateAssets>
+   </PackageReference>
+   <PackageReference Include="coverlet.collector" Version="3.1.2">
+   <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+   <PrivateAssets>all</PrivateAssets>
+</PackageReference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\IA_ConverterCommons\IA_ConverterCommons.csproj" />
+    <ProjectReference Include="..\Sias.Auto\Sias.Auto.csproj" />
+    <ProjectReference Include="..\Sias.Bilhetes\Sias.Bilhetes.csproj" />
+    <ProjectReference Include="..\Sias.Cobranca\Sias.Cobranca.csproj" />
+    <ProjectReference Include="..\Sias.Cosseguro\Sias.Cosseguro.csproj" />
+    <ProjectReference Include="..\Sias.Emissao\Sias.Emissao.csproj" />
+    <ProjectReference Include="..\Sias.FederalVida\Sias.FederalVida.csproj" />
+    <ProjectReference Include="..\Sias.Geral\Sias.Geral.csproj" />
+    <ProjectReference Include="..\Sias.PessoaFisica\Sias.PessoaFisica.csproj" />
+    <ProjectReference Include="..\Sias.Sinistro\Sias.Sinistro.csproj" />
+    <ProjectReference Include="..\Sias.VidaAzul\Sias.VidaAzul.csproj" />
+    <ProjectReference Include="..\Sias.VidaEmGrupo\Sias.VidaEmGrupo.csproj" />
+    <ProjectReference Include="..\Sias.Outros\Sias.Outros.csproj" />
+    <ProjectReference Include="..\Sias.Loterico\Sias.Loterico.csproj" />
+    <ProjectReference Include="..\Sias.VidaEmpresarial\Sias.VidaEmpresarial.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="FILES\EM8020B\" />
+    <Folder Include="FILES\EM8009B\" />
+    <Folder Include="FILES\EM8010B\" />
+    <Folder Include="FILES\NovaPasta\" />
+    <Folder Include="FILES\PF0003B\" />
+    <Folder Include="FILES\CB6248B\" />
+    <Folder Include="FILES\PF0771B\" />
+    <Folder Include="FILES\SI0005B\" />
+  </ItemGroup>
+</Project>

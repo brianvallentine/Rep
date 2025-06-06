@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL update SEGUROS.seguros.v0histsini set situacao = '2' where num_apol_sinistro = :NUM_APOL_SINISTRO and numopg = :NUMOPG and operacao between 2000 and 3999 and operacao not in (2010,2020,2050,3010,3020,3050) END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}, {"Field": ":NUMOPG", "Type": "string"}], "Outputs": [], "Endpoint": "si22a/si22p21"}

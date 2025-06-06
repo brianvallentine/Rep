@@ -1,0 +1,42 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.VidaAzul.DB2.VA0340B
+{
+    public class R0320_00_PROCESSA_V0HCONTAVA_DB_UPDATE_1_Update1 : QueryBasis<R0320_00_PROCESSA_V0HCONTAVA_DB_UPDATE_1_Update1>
+    {
+        string GetQuery()
+        {
+            var query = @$"
+				UPDATE SEGUROS.V0HISTCONTAVA
+				SET SITUACAO = '2'
+				WHERE  NRCERTIF =  '{this.NRCERTIF}'
+				AND NRPARCEL =  '{this.NRPARCEL}'
+				AND OCORRHISTCTA =  '{this.OCORRHISTCTA}'";
+
+            return query;
+        }
+        public string OCORRHISTCTA { get; set; }
+        public string NRCERTIF { get; set; }
+        public string NRPARCEL { get; set; }
+
+        public static void Execute(R0320_00_PROCESSA_V0HCONTAVA_DB_UPDATE_1_Update1 r0320_00_PROCESSA_V0HCONTAVA_DB_UPDATE_1_Update1)
+        {
+            var ths = r0320_00_PROCESSA_V0HCONTAVA_DB_UPDATE_1_Update1;
+            ths.SetQuery(ths.GetQuery());
+            ths.ExecuteQuery();
+        }
+
+        public override R0320_00_PROCESSA_V0HCONTAVA_DB_UPDATE_1_Update1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            throw new NotImplementedException();
+        }
+
+    }
+}

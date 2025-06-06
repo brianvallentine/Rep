@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v1rcap SET nrpropos = :NRPROPOS, nome = :NOME, timestamp = current timestamp WHERE fonte = :FONTE AND nrrcap = :NRRCAP END SQL", "Inputs": [{"Field": ":NRPROPOS", "Type": "string"}, {"Field": ":NOME", "Type": "string"}, {"Field": ":FONTE", "Type": "string"}, {"Field": ":NRRCAP", "Type": "string"}], "Outputs": [], "Endpoint": "cb5ea/cb5epe4"}

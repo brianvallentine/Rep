@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0opcaopagva T1 SET dttervig = :DTMOVABE, TIMESTAMP = current TIMESTAMP WHERE nrcertif = :NRCERTIF AND dttervig = '9999-12-31' END SQL", "Inputs": [{"Field": ":DTMOVABE", "Type": "string"}, {"Field": ":NRCERTIF", "Type": "string"}], "Outputs": [], "Endpoint": "vgfna/vgfnp044"}

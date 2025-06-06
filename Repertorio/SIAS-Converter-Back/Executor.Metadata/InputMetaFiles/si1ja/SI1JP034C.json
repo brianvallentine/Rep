@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT TIPO_DESTINATARIO\nFROM SEGUROS.GE_DESTINAT_CLASSE\n \nWHERE COD_CLASSE = :COD_CLASSE\n/\n END SQL", "Inputs": [{"Field": ":COD_CLASSE", "Type": "string"}], "Outputs": [{"Field": "TIPO_DESTINATARIO", "Type": "string"}], "Endpoint": "si1ja/SI1JP034C"}

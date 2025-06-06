@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT FONTE\nFROM seguros.v0fonte\n \nwhere fonte    = :FONTE\n  and situacao = '0'\n  and fonte   <=  90\n/\n END SQL", "Inputs": [{"Field": ":FONTE", "Type": "string"}], "Outputs": [{"Field": "FONTE", "Type": "string"}], "Endpoint": "as81a/AS81P27INQ"}

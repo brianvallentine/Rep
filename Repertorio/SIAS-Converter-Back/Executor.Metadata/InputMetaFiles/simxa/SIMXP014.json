@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_PRODUTO, COD_CLIENTENUM_APOL_SINISTRO\nFROM seguros.sinistro_habit01\n \nWHERE CGCCPF = :CGCCPF\n/\n END SQL", "Inputs": [{"Field": ":CGCCPF", "Type": "string"}], "Outputs": [{"Field": "COD_PRODUTO", "Type": "string"}, {"Field": "COD_CLIENTE", "Type": "string"}, {"Field": "NUM_APOL_SINISTRO", "Type": "string"}], "Endpoint": "simxa/SIMXP014"}

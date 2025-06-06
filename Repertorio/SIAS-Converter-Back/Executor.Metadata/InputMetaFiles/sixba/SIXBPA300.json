@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT MAX(SEQ_ESTIP_HAB)\nFROM SEGUROS.SI_HIST_ESTIP_HAB\n \nWHERE NUM_aPOL_SINISTRO  =  :NUM_APOL_SINISTRO\n/\n END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "MAX", "Type": "string"}, {"Field": "SEQ_ESTIP_HAB", "Type": "string"}], "Endpoint": "sixba/SIXBPA300"}

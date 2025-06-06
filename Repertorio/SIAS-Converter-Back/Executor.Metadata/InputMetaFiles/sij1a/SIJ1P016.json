@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DES_DESLOCAMENTO\nFROM seguros.ge_deslocamento\n \nWHERE COD_DESLOCAMENTO = :COD_DESLOCAMENTO\n/\n END SQL", "Inputs": [{"Field": ":COD_DESLOCAMENTO", "Type": "string"}], "Outputs": [{"Field": "DES_DESLOCAMENTO", "Type": "string"}], "Endpoint": "sij1a/SIJ1P016"}

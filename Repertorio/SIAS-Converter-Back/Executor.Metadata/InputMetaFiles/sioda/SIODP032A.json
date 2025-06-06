@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(MAX(SEQ_TIPO_OBJ_SEG),-1) FROM SEGUROS.EF_IMOVEL WHERE NUM_CONTRATO_SEGUR = :NUM_CONTRATO_SEGUR AND COD_TIPO_OBJ_SEG = 1 WITH UR END SQL", "Inputs": [{"Field": ":NUM_CONTRATO_SEGUR", "Type": "string"}], "Outputs": [{"Field": "SEQ_TIPO_OBJ_SEG", "Type": "string"}], "Endpoint": "sioda/siodp032a"}

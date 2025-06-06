@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DISTINCTCOUNT(*)\nFROM seguros.v1produtosvg\n \n  WHERE CODPRODU = :CODPRODU\n/\n END SQL", "Inputs": [{"Field": ":CODPRODU", "Type": "string"}], "Outputs": [{"Field": "DISTINCT", "Type": "string"}, {"Field": "COUNT", "Type": "string"}], "Endpoint": "vanea/VANQP108"}

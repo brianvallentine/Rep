@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT CODCOSS FROM seguros.v1apolcosced WHERE num_apolice = :NUM_APOLICE AND dtinivig <= :DTINIVIG AND dttervig >= :DTTERVIG END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":DTINIVIG", "Type": "string"}, {"Field": ":DTTERVIG", "Type": "string"}], "Outputs": [{"Field": "CODCOSS", "Type": "string"}], "Endpoint": "em11a/em11p18"}

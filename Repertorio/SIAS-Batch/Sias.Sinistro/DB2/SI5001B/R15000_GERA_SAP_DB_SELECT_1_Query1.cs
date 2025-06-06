@@ -1,0 +1,94 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Sinistro.DB2.SI5001B
+{
+    public class R15000_GERA_SAP_DB_SELECT_1_Query1 : QueryBasis<R15000_GERA_SAP_DB_SELECT_1_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT NUM_APOLICE ,
+            NUM_ENDOSSO ,
+            NUM_PARCELA ,
+            COD_CONVENIO,
+            NSAS,
+            SITUACAO_COBRANCA
+            INTO :MOVDEBCE-NUM-APOLICE,
+            :MOVDEBCE-NUM-ENDOSSO,
+            :MOVDEBCE-NUM-PARCELA,
+            :MOVDEBCE-COD-CONVENIO,
+            :MOVDEBCE-NSAS,
+            :MOVDEBCE-SITUACAO-COBRANCA
+            FROM SEGUROS.MOVTO_DEBITOCC_CEF C
+            WHERE C.NUM_APOLICE = :MOVDEBCE-NUM-APOLICE
+            AND C.NUM_ENDOSSO = :MOVDEBCE-NUM-ENDOSSO
+            AND C.NUM_PARCELA = :MOVDEBCE-NUM-PARCELA
+            AND C.COD_CONVENIO = :MOVDEBCE-COD-CONVENIO
+            AND C.SITUACAO_COBRANCA = :MOVDEBCE-SITUACAO-COBRANCA
+            AND C.NSAS = :MOVDEBCE-NSAS
+            END-EXEC.
+            */
+            #endregion
+            var query = @$"
+				SELECT NUM_APOLICE 
+							,
+											NUM_ENDOSSO 
+							,
+											NUM_PARCELA 
+							,
+											COD_CONVENIO
+							,
+											NSAS
+							,
+											SITUACAO_COBRANCA
+											FROM SEGUROS.MOVTO_DEBITOCC_CEF C
+											WHERE C.NUM_APOLICE = '{this.MOVDEBCE_NUM_APOLICE}'
+											AND C.NUM_ENDOSSO = '{this.MOVDEBCE_NUM_ENDOSSO}'
+											AND C.NUM_PARCELA = '{this.MOVDEBCE_NUM_PARCELA}'
+											AND C.COD_CONVENIO = '{this.MOVDEBCE_COD_CONVENIO}'
+											AND C.SITUACAO_COBRANCA = '{this.MOVDEBCE_SITUACAO_COBRANCA}'
+											AND C.NSAS = '{this.MOVDEBCE_NSAS}'";
+
+            return query;
+        }
+        public string MOVDEBCE_NUM_APOLICE { get; set; }
+        public string MOVDEBCE_NUM_ENDOSSO { get; set; }
+        public string MOVDEBCE_NUM_PARCELA { get; set; }
+        public string MOVDEBCE_COD_CONVENIO { get; set; }
+        public string MOVDEBCE_NSAS { get; set; }
+        public string MOVDEBCE_SITUACAO_COBRANCA { get; set; }
+
+        public static R15000_GERA_SAP_DB_SELECT_1_Query1 Execute(R15000_GERA_SAP_DB_SELECT_1_Query1 r15000_GERA_SAP_DB_SELECT_1_Query1)
+        {
+            var ths = r15000_GERA_SAP_DB_SELECT_1_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override R15000_GERA_SAP_DB_SELECT_1_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new R15000_GERA_SAP_DB_SELECT_1_Query1();
+            var i = 0;
+            dta.MOVDEBCE_NUM_APOLICE = result[i++].Value?.ToString();
+            dta.MOVDEBCE_NUM_ENDOSSO = result[i++].Value?.ToString();
+            dta.MOVDEBCE_NUM_PARCELA = result[i++].Value?.ToString();
+            dta.MOVDEBCE_COD_CONVENIO = result[i++].Value?.ToString();
+            dta.MOVDEBCE_NSAS = result[i++].Value?.ToString();
+            dta.MOVDEBCE_SITUACAO_COBRANCA = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

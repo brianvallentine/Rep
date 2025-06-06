@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT value(sum(val_operacao),0) FROM seguros.v1histsini WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND OPERACAO IN (0106,0116) END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [], "Endpoint": "siv7a/siv7p305"}

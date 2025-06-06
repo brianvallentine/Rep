@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COD_PESSOA, NUM_CNPJ FROM SEGUROS.GE_PESSOA_JURIDICA WHERE T1.NUM_CNPJ = :NUM_CNPJ END SQL", "Inputs": [{"Field": ":NUM_CNPJ", "Type": "string"}], "Outputs": [{"Field": "COD_PESSOA", "Type": "string"}, {"Field": "NUM_CNPJ", "Type": "string"}], "Endpoint": "sioda/siodp035"}

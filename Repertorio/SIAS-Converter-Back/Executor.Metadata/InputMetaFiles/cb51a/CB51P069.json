@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT MAX(OCORHIST) FROM seguros.v0estipulante WHERE COD_CCT = :COD_CCT AND DTINIVIG <= :DTINIVIG AND DTTERVIG >= :DTINIVIG END SQL", "Inputs": [{"Field": ":COD_CCT", "Type": "string"}, {"Field": ":DTINIVIG", "Type": "string"}], "Outputs": [{"Field": "OCORHIST", "Type": "string"}], "Endpoint": "cb51a/cb51p069"}

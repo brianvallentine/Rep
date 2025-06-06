@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0rcapcomp SET situacao = '1', timestamp = CURRENT TIMESTAMP WHERE nrrcap = :NRRCAP AND operacao NOT IN (200, 210, 220, 400) AND situacao = '0' END SQL", "Inputs": [{"Field": ":NRRCAP", "Type": "string"}], "Outputs": [], "Endpoint": "cb5wa/cb5wp97"}

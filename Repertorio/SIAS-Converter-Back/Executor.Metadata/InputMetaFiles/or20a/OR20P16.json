@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT OPERACAOocorhist\nFROM seguros.v1acomprop\n \nwhere   fonte    = :FONTE\n  and   nrpropos = :NRPROPOS\n/\n END SQL", "Inputs": [{"Field": ":FONTE", "Type": "string"}, {"Field": ":NRPROPOS", "Type": "string"}], "Outputs": [{"Field": "OPERACAO", "Type": "string"}, {"Field": "ocorhist", "Type": "string"}], "Endpoint": "or20a/OR20P16"}

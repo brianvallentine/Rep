@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT max(DATA_RECEBE)\nFROM seguros.v0sini_lot_doc01\n \nWHERE NUM_APOL_SINISTRO    =  :NUM_APOL_SINISTRO\n/\n END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "max", "Type": "string"}, {"Field": "DATA_RECEBE", "Type": "string"}], "Endpoint": "si6ha/SI6HP35A30"}

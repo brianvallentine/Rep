@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_USUARIONUM_TIPO_RODIZIO\nFROM SEGUROS.GE_USUARIO_RODIZIO\n \nWHERE COD_USUARIO = :COD_USUARIO\n/\n END SQL", "Inputs": [{"Field": ":COD_USUARIO", "Type": "string"}], "Outputs": [{"Field": "COD_USUARIO", "Type": "string"}, {"Field": "NUM_TIPO_RODIZIO", "Type": "string"}], "Endpoint": "sixka/SIXKP042"}

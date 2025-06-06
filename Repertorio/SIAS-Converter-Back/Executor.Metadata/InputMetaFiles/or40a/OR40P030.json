@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0endosso SET dttervig = :DTTERVIG, timestamp = current timestamp WHERE num_apolice = :NUM_APOLICE AND nrendos = 0 AND timestamp = :TIMESTAMP END SQL", "Inputs": [{"Field": ":DTTERVIG", "Type": "string"}, {"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":TIMESTAMP", "Type": "string"}], "Outputs": [], "Endpoint": "or40a/or40p030"}

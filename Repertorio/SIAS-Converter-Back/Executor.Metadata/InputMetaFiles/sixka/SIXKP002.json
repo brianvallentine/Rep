@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DATA_MOV_ABERTO\nFROM seguros.sistemas\n \nWHERE IDE_SISTEMA = :IDE_SISTEMA\n/\n END SQL", "Inputs": [{"Field": ":IDE_SISTEMA", "Type": "string"}], "Outputs": [{"Field": "DATA_MOV_ABERTO", "Type": "string"}], "Endpoint": "sixka/SIXKP002"}

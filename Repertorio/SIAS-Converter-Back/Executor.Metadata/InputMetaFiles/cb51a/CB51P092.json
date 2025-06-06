@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT value(max(OCORR_ENDERECO),0) FROM seguros.v1enderecos WHERE COD_CLIENTE = :COD_CLIENTE END SQL", "Inputs": [{"Field": ":COD_CLIENTE", "Type": "string"}], "Outputs": [{"Field": "OCORR_ENDERECO", "Type": "string"}], "Endpoint": "cb51a/cb51p092"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT TIPREG, SITUACAO FROM SEGUROS.V1MESTSINI WHERE FONTE = :FONTE AND PROTSINI = :PROTSINI END SQL", "Inputs": [{"Field": ":FONTE", "Type": "string"}, {"Field": ":PROTSINI", "Type": "string"}], "Outputs": [{"Field": "TIPREG", "Type": "string"}, {"Field": "SITUACAO", "Type": "string"}], "Endpoint": "si07a/si07p019"}

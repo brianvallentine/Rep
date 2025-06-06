@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VALUE(SUM(IMP_SEGURADA_IX),0) FROM seguros.v1coberapol WHERE NUM_APOLICE = :NUM_APOLICE AND NRENDOS = 0 AND RAMOFR = :RAMOFR END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":RAMOFR", "Type": "string"}], "Outputs": [{"Field": "IMP_SEGURADA_IX", "Type": "string"}], "Endpoint": "si07a/si07p020"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT VLCRUZAD\nFROM seguros.v1moeda\n \nwhere dtinivig <= :V1SISTEMA.DTMOVABE\n  and dttervig >= :V1SISTEMA.DTMOVABE\n  and tipo_moeda = '0'\n  and situacao = '0'\n/\n END SQL", "Inputs": [{"Field": ":V1SISTEMA", "Type": "string"}, {"Field": ":V1SISTEMA", "Type": "string"}], "Outputs": [{"Field": "VLCRUZAD", "Type": "string"}], "Endpoint": "vgmia/VGMIP020"}

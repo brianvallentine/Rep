@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT NUM_CERTIFICADO\nFROM seguros.v1movimento\n \nwhere num_certificado = :NUM_CERTIFICADO\n  and data_inclusao is null\n/\n END SQL", "Inputs": [{"Field": ":NUM_CERTIFICADO", "Type": "string"}], "Outputs": [{"Field": "NUM_CERTIFICADO", "Type": "string"}], "Endpoint": "vgmka/VGMKP011"}

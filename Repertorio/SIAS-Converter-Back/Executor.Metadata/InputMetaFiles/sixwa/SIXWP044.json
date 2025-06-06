@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COD_DESTINATARIO FROM SEGUROS.GE_DESTINATARIO WHERE COD_CLIENTE = :COD_CLIENTE AND COD_FILIAL = :COD_FILIAL AND SITUACAO = '0' END SQL", "Inputs": [{"Field": ":COD_CLIENTE", "Type": "string"}, {"Field": ":COD_FILIAL", "Type": "string"}], "Outputs": [{"Field": "COD_DESTINATARIO", "Type": "string"}], "Endpoint": "sixwa/sixwp044"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.numero_outros T1 SET NUM_MOV_SINISTRO = :NUM_MOV_SINISTRO, TIMESTAMP = CURRENT TIMESTAMP WHERE TIMESTAMP = :TIMESTAMP END SQL", "Inputs": [{"Field": ":NUM_MOV_SINISTRO", "Type": "string"}, {"Field": ":TIMESTAMP", "Type": "string"}], "Outputs": [], "Endpoint": "sioba/siobp083"}

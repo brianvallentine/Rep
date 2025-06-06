@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COD_PRODUTO, DESCR_FAIXA FROM seguros.sicob_faixa_rcap WHERE NUM_SICOB_INI <= :NUM_SICOB_INI AND NUM_SICOB_FIM >= :NUM_SICOB_INI END SQL", "Inputs": [{"Field": ":NUM_SICOB_INI", "Type": "string"}], "Outputs": [{"Field": "COD_PRODUTO", "Type": "string"}, {"Field": "DESCR_FAIXA", "Type": "string"}], "Endpoint": "cbaga/cbagp087"}

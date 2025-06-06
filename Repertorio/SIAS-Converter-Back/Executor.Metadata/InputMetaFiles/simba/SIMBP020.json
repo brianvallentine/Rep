@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COD_EVENTO FROM SEGUROS.SI_EVENTO_TIPO WHERE COD_DOCUMENTO = :COD_DOCUMENTO AND COD_TIPO_CARTA IS NULL END SQL", "Inputs": [{"Field": ":COD_DOCUMENTO", "Type": "string"}], "Outputs": [{"Field": "COD_EVENTO", "Type": "string"}], "Endpoint": "simba/simbp020"}

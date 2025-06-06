@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DESC_FAIXA\nFROM seguros.v0faixa_cep\n \nwhere dttervig = '9999-12-31'\n and  cepini  <= :CEPINI\n and  cepfim  >= :CEPINI\n/\n END SQL", "Inputs": [{"Field": ":CEPINI", "Type": "string"}, {"Field": ":CEPINI", "Type": "string"}], "Outputs": [{"Field": "DESC_FAIXA", "Type": "string"}], "Endpoint": "vgvea/VGVQP102"}

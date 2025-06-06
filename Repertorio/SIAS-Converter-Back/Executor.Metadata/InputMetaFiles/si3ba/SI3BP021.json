@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DATA_MOVIMENTO, COD_PRODUTO FROM SEGUROS.SINISTRO_HISTORICO WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "DATA_MOVIMENTO", "Type": "string"}, {"Field": "COD_PRODUTO", "Type": "string"}], "Endpoint": "sihaa/si3bp021"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT OPERACAO, DTMOVTO, VAL_OPERACAO FROM seguros.v1histsini WHERE num_apol_sinistro = :NUM_APOL_SINISTRO END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [{"Field": "OPERACAO", "Type": "string"}, {"Field": "DTMOVTO", "Type": "string"}, {"Field": "VAL_OPERACAO", "Type": "string"}], "Endpoint": "si91a/si91p27"}

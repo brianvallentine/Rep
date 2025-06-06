@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_DERAR, COD_SUREGCOD_FONTE\nFROM seguros.v1malhacef\n \nWHERE COD_SUREG = :COD_SUREG\n/\n END SQL", "Inputs": [{"Field": ":COD_SUREG", "Type": "string"}], "Outputs": [{"Field": "COD_DERAR", "Type": "string"}, {"Field": "COD_SUREG", "Type": "string"}, {"Field": "COD_FONTE", "Type": "string"}], "Endpoint": "vgcca/VGCCP017"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0histsini SET SITUACAO = :SITUACAO WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND OPERACAO IN (1181,1182,1183,1184,1081,1082,1083,1084,9000) AND SITUACAO IN ('0','1') END SQL", "Inputs": [{"Field": ":SITUACAO", "Type": "string"}, {"Field": ":NUM_APOL_SINISTRO", "Type": "string"}], "Outputs": [], "Endpoint": "sizba/sizbp84"}

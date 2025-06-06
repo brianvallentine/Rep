@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_AGENCIANUM_CTA_CORRENTE\nFROM seguros.v1contacor\n \nwhere num_certificado=:NUM_CERTIFICADO\n/ END SQL", "Inputs": [{"Field": ":NUM_CERTIFICADO", "Type": "string"}], "Outputs": [{"Field": "COD_AGENCIA", "Type": "string"}, {"Field": "NUM_CTA_CORRENTE", "Type": "string"}], "Endpoint": "vgmua/VGMUP110"}

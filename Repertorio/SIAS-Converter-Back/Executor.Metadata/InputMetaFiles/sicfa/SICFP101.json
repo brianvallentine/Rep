@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.movsinistro_habit SET situacao = '9', tstp_situacao = CURRENT TIMESTAMP WHERE num_ordem = :NUM_ORDEM END SQL", "Inputs": [{"Field": ":NUM_ORDEM", "Type": "string"}], "Outputs": [], "Endpoint": "sicfa/sicfp101"}

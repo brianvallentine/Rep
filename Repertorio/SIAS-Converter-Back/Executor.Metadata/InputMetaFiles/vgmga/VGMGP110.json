@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT CODPRODU, NUM_APOLICECODSUBES\nFROM seguros.v0propostava\n \nWHERE NRCERTIF = :NRCERTIF\n/\n END SQL", "Inputs": [{"Field": ":NRCERTIF", "Type": "string"}], "Outputs": [{"Field": "CODPRODU", "Type": "string"}, {"Field": "NUM_APOLICE", "Type": "string"}, {"Field": "CODSUBES", "Type": "string"}], "Endpoint": "vgmga/VGMGP110"}

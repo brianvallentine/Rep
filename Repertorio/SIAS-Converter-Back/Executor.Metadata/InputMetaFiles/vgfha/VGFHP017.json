@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT NOME, TIPAPORAMO\nFROM seguros.v1apolice\n \nWHERE     NUM_APOLICE    =  :NUM_APOLICE\n/\n END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [{"Field": "NOME", "Type": "string"}, {"Field": "TIPAPO", "Type": "string"}, {"Field": "RAMO", "Type": "string"}], "Endpoint": "vgfha/VGFHP017"}

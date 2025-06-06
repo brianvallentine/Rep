@@ -1,0 +1,13 @@
+
+using Copies;
+using Dclgens;
+using IA_ConverterCommons;
+using static Code.EM0006B;
+
+namespace Sias.Emissao.Model
+{
+    public class EM0006BModel
+    {
+
+    }
+}

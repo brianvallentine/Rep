@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL DELETE FROM SEGUROS.seguros.v0relatorios WHERE NUM_APOLICE = :NUM_APOLICE AND NRENDOS = :NRENDOS AND IDSISTEM = :IDSISTEM AND NRPARCEL = 0 AND SITUACAO = '0' END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":NRENDOS", "Type": "string"}, {"Field": ":IDSISTEM", "Type": "string"}], "Outputs": [], "Endpoint": "em02a/em02p30"}

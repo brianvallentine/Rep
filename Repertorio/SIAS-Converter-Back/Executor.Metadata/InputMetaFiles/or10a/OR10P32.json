@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT SUM(prm_tarifario_ix)\nFROM seguros.v1parcela\n \nWHERE\n  num_APOLICE = :NUM_APOLICE  and\n  situacao    = '1'\n/ END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [{"Field": "SUM", "Type": "string"}, {"Field": "prm_tarifario_ix", "Type": "string"}], "Endpoint": "or10a/OR10P32"}

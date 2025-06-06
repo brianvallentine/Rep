@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT SEQ_SINISTRO\nFROM seguros.numero_aes\n \nWHERE ORGAO_EMISSOR = :ORGAO_EMISSOR\n  AND RAMO_EMISSOR  = :RAMO_EMISSOR\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":ORGAO_EMISSOR", "Type": "string"}, {"Field": ":RAMO_EMISSOR", "Type": "string"}], "Outputs": [{"Field": "SEQ_SINISTRO", "Type": "string"}], "Endpoint": "sioba/SIOBP084"}

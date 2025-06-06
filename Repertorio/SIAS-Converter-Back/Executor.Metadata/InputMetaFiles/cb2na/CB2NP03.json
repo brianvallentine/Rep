@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DISTINCT NUM_APOLICE, DIA_DEBITO FROM seguros.v0movdebcc_cef WHERE NUM_APOLICE = :NUM_APOLICE AND NRENDOS = :NRENDOS END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":NRENDOS", "Type": "string"}], "Outputs": [{"Field": "NUM_APOLICE", "Type": "string"}, {"Field": "DIA_DEBITO", "Type": "string"}], "Endpoint": "cb2na/cb2np03"}

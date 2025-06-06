@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT SIGLA_GRUPO\nFROM seguros.si_causa_grupo\n \nWHERE COD_GRUPO_CAUSA = :COD_GRUPO_CAUSA\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":COD_GRUPO_CAUSA", "Type": "string"}], "Outputs": [{"Field": "SIGLA_GRUPO", "Type": "string"}], "Endpoint": "sixca/SIXCP01K"}

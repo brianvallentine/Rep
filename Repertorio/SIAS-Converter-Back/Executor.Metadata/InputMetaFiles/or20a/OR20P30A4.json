@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT SENHA\nFROM SEGUROS.V0USU_FIL_SENHA\n \n  WHERE CODUSU            = :CODUSU\n    AND NIVEL_AUTORIZACAO = 'S'\n    AND TIPO_FUNCAO       = 'LIBCOMOR'\n    AND SITUACAO          = ' '\n/\n END SQL", "Inputs": [{"Field": ":CODUSU", "Type": "string"}], "Outputs": [{"Field": "SENHA", "Type": "string"}], "Endpoint": "or20a/OR20P30A4"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT T1.DES_ABREV_MSG_CRITICA, T1.IND_ALTERACAO FROM SEGUROS.VG_DM_MSG_CRITICA WHERE T1.COD_MSG_CRITICA = :COD_MSG_CRITICA WITH UR END SQL", "Inputs": [{"Field": ":COD_MSG_CRITICA", "Type": "string"}], "Outputs": [{"Field": "DES_ABREV_MSG_CRITICA", "Type": "string"}, {"Field": "IND_ALTERACAO", "Type": "string"}], "Endpoint": "vgw1a/vgw1p160"}

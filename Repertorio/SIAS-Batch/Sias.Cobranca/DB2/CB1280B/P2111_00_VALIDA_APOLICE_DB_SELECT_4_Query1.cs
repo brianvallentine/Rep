@@ -1,0 +1,69 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.Cobranca.DB2.CB1280B
+{
+    public class P2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1 : QueryBasis<P2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1>
+    {
+        string GetQuery()
+        {
+            #region SQL_SOURCE
+            /*EXEC SQL
+            SELECT SITUACAO_COBRANCA
+            INTO :MOVDEBCE-SITUACAO-COBRANCA
+            FROM SEGUROS.MOVTO_DEBITOCC_CEF
+            WHERE NUM_APOLICE = :PARCEHIS-NUM-APOLICE
+            AND NUM_ENDOSSO = :PARCEHIS-NUM-ENDOSSO
+            AND NUM_PARCELA = :PARCEHIS-NUM-PARCELA
+            AND COD_CONVENIO = :MOVDEBCE-COD-CONVENIO
+            AND NSAS = :MOVDEBCE-NSAS
+            WITH UR
+            END-EXEC
+            */
+            #endregion
+            var query = @$"
+				SELECT SITUACAO_COBRANCA
+											FROM SEGUROS.MOVTO_DEBITOCC_CEF
+											WHERE NUM_APOLICE = '{this.PARCEHIS_NUM_APOLICE}'
+											AND NUM_ENDOSSO = '{this.PARCEHIS_NUM_ENDOSSO}'
+											AND NUM_PARCELA = '{this.PARCEHIS_NUM_PARCELA}'
+											AND COD_CONVENIO = '{this.MOVDEBCE_COD_CONVENIO}'
+											AND NSAS = '{this.MOVDEBCE_NSAS}'
+											WITH UR";
+
+            return query;
+        }
+        public string MOVDEBCE_SITUACAO_COBRANCA { get; set; }
+        public string MOVDEBCE_COD_CONVENIO { get; set; }
+        public string PARCEHIS_NUM_APOLICE { get; set; }
+        public string PARCEHIS_NUM_ENDOSSO { get; set; }
+        public string PARCEHIS_NUM_PARCELA { get; set; }
+        public string MOVDEBCE_NSAS { get; set; }
+
+        public static P2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1 Execute(P2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1 p2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1)
+        {
+            var ths = p2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1;
+            ths.SetQuery(ths.GetQuery());
+
+            ths.Open();
+            var isFetch = ths.Fetch();
+
+            return isFetch ? ths : null;
+        }
+
+        public override P2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1 OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new P2111_00_VALIDA_APOLICE_DB_SELECT_4_Query1();
+            var i = 0;
+            dta.MOVDEBCE_SITUACAO_COBRANCA = result[i++].Value?.ToString();
+            return dta;
+        }
+
+    }
+}

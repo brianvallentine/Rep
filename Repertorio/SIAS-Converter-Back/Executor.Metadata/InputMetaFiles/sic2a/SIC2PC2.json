@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT VALUE(MAX(PROTSINI)0)\nFROM SEGUROS.V1CONTSINI\n \nWHERE FONTE  =  :FONTE\n/\n END SQL", "Inputs": [{"Field": ":FONTE", "Type": "string"}], "Outputs": [{"Field": "VALUE", "Type": "string"}, {"Field": "MAX", "Type": "string"}, {"Field": "PROTSINI", "Type": "string"}, {"Field": "0", "Type": "string"}], "Endpoint": "sic2a/SIC2PC2"}

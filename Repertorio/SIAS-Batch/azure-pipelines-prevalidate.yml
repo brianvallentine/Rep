@@ -1,0 +1,53 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  mainRepoPath: '$(Agent.BuildDirectory)/SIAS-Batch'
+  toolsRepoPath: '$(Agent.BuildDirectory)/Tools'
+  asisRepoPath: '$(Agent.BuildDirectory)/CVP-AsIs'
+
+steps:
+  # Make sure the your correct .net sdk is installed
+- task: UseDotNet@2
+  displayName: 'Install .NET 8'
+  inputs:
+    version: 8.x
+    performMultiLevelLookup: true
+    
+# Step 1: Main repository is already cloned by default in $(Build.SourcesDirectory)
+- checkout: self
+  path: 'SIAS-Batch'
+  fetchDepth: 0  # Fetch all history for creating proper branches later
+  displayName: 'Checkout Main Repository'
+
+# Step 2: Clone Tools repository
+- checkout: 'git://$(System.TeamProject)/Tools'
+  path: 'Tools'
+
+# Step 3: Clone Tools repository
+- checkout: 'git://$(System.TeamProject)/CVP - As is'
+  sparseCheckoutDirectories: 'COB2P/'
+  fetchFilter: blob:none
+  path: 'CVP-AsIs'
+
+# Step 4: Execute custom program to check inconsistencies
+- task: DotNetCoreCLI@2
+  displayName: 'Build Code Analyzer Tool'
+  inputs:
+    command: 'build'
+    projects: '$(Agent.BuildDirectory)/Tools/Pipeline/CodeAnalysisGate/CodeAnalysisGate.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+- task: PowerShell@2
+  displayName: 'Run Code Analyzer Tool'
+  inputs:
+    targetType: 'inline'
+    script: |
+      & dotnet '$(toolsRepoPath)/Pipeline/CodeAnalysisGate/bin/$(buildConfiguration)/net8.0/CodeAnalysisGate.dll' '$(mainRepoPath)' '$(asisRepoPath)/COB2P'
+    failOnStderr: true

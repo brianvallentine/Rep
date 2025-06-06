@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.seguros.v0movdebcc_cef SET SIT_COBRANCA = :SIT_COBRANCA WHERE NUM_APOLICE = :NUM_APOLICE AND COD_CONVENIO IN (6114, 102837) AND SIT_COBRANCA NOT IN ('1','2','3') END SQL", "Inputs": [{"Field": ":SIT_COBRANCA", "Type": "string"}, {"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [], "Endpoint": "cb58a/cb58p033"}

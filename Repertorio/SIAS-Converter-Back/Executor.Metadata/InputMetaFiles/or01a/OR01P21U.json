@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT CDFRACIOMAX(NRPARCEL)\nFROM seguros.v0plancomis\n \nWHERE CDFRACIO = :CDFRACIO\n  AND SITUACAO = '0'\nGROUP BY CDFRACIO\n/\n END SQL", "Inputs": [{"Field": ":CDFRACIO", "Type": "string"}], "Outputs": [{"Field": "CDFRACIO", "Type": "string"}, {"Field": "MAX", "Type": "string"}, {"Field": "NRPARCEL", "Type": "string"}], "Endpoint": "or01a/OR01P21U"}

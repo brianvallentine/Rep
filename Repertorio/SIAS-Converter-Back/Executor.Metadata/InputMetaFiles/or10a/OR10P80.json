@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0contprop SET situacao = '0', ocorhist = :OCORHIST, timestamp = current timestamp WHERE fonte = :FONTE AND nrpropos = :NRPROPOS END SQL", "Inputs": [{"Field": ":OCORHIST", "Type": "string"}, {"Field": ":FONTE", "Type": "string"}, {"Field": ":NRPROPOS", "Type": "string"}], "Outputs": [], "Endpoint": "or10a/or10p80"}

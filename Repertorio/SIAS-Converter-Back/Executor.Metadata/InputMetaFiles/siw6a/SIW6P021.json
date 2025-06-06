@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.seguros.v0histsini T1 SET SITUACAO = '2', TIMESTAMP = CURRENT TIMESTAMP WHERE NUM_APOL_SINISTRO = :NUM_APOL_SINISTRO AND OCORHIST = :OCORHIST END SQL", "Inputs": [{"Field": ":NUM_APOL_SINISTRO", "Type": "string"}, {"Field": ":OCORHIST", "Type": "string"}], "Outputs": [], "Endpoint": "siw6a/siw6p021"}

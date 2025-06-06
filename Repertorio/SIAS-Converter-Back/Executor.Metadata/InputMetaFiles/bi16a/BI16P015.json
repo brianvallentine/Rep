@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.seguros.v0comissao_fenae SET DTMOVTO = :V1SISTEMA.DTMOVABE, SITUACAO = '8', TIMESTAMP = CURRENT TIMESTAMP WHERE NUMBIL = :NUMBIL END SQL", "Inputs": [{"Field": ":V1SISTEMA.DTMOVABE", "Type": "string"}, {"Field": ":NUMBIL", "Type": "string"}], "Outputs": [], "Endpoint": "bi16a/bi16p015"}

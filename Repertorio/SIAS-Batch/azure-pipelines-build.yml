@@ -1,0 +1,146 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'x64'
+  buildConfiguration: 'Release'
+
+steps:
+  # Make sure the your correct .net sdk is installed
+- task: UseDotNet@2
+  displayName: 'Install .NET 8'
+  inputs:
+    version: 8.x
+    performMultiLevelLookup: true
+
+#Copy appSettings to Test Project
+- task: CopyFiles@2
+  displayName: Copy IA_ConverterCommons/appSettings.json to FileTests.Test
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)/IA_ConverterCommons'
+    Contents: 'appSettings.json'
+    TargetFolder: '$(Build.SourcesDirectory)/FileTests.Test'
+
+#Restore Solution
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: restore
+    projects: '$(solution)'
+
+#Build Solution
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    projects: '$(solution)'
+    arguments: '--configuration $(BuildConfiguration)'
+
+#Run Powershell Script
+- task: PowerShell@2
+  condition: and(succeeded(), eq(variables['executeUnitTest'], 'True'))
+  displayName: Normalize Test Files
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Defina a variável de ambiente que contém o caminho da pasta
+      $env:SourceFolder = "$(Build.SourcesDirectory)/FileTests.Test/FILES"
+      $env:TargetFolder = "$(Agent.TempDirectory)/TestFiles"
+
+      New-Item -Path "$env:TargetFolder" -ItemType "directory"
+      
+      # Função para extrair arquivos ZIP
+      function Extract-ZipFile {
+          param(
+              [string]$zipFilePath,
+              [string]$destinationFolder
+          )
+      
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          [System.IO.Compression.ZipFile]::ExtractToDirectory($zipFilePath, $destinationFolder)
+      }
+      
+      # Obter todos os arquivos e pastas recursivamente
+      $files = Get-ChildItem -Path $env:SourceFolder -Recurse
+      
+      foreach ($file in $files) {
+          if ($file.PSIsContainer) {
+              continue
+          }
+      
+      	Write-Output "Processando $($file.FullName)"
+          
+      	# Verifique se o arquivo é um ZIP
+          if ($file.Extension -eq ".zip") {
+              try {
+                  # Extrair arquivos ZIP diretamente na pasta da variável de ambiente
+                  Extract-ZipFile -zipFilePath $file.FullName -destinationFolder $env:TargetFolder
+              } catch {
+                  Write-Output "Erro ao extrair $($file.FullName) $_"
+              }
+          } else {
+              # Remover aspas simples do início e do final do nome do arquivo
+              $newFileName = $file.Name -replace "^[']+", "" -replace "[']+$", ""
+      
+              # Mover o arquivo para a pasta da variável de ambiente com o novo nome
+              $destinationPath = Join-Path -Path $env:TargetFolder -ChildPath $newFileName
+      
+              try {
+                  Move-Item -Path $file.FullName -Destination $destinationPath
+              } catch {
+                  Write-Output "Erro ao mover $($file.FullName) para $destinationPath $_"
+              }
+          }
+      }
+      & ls -Rlart $env:TargetFolder
+      & cat $(Build.SourcesDirectory)/FileTests.Test/appSettings.json
+
+#Run Powershell Script
+- task: PowerShell@2
+  condition: eq(variables['executeUnitTest'], 'True')
+  displayName: Update FileTests.Test appSettings.json
+  inputs:
+    targetType: 'inline'
+    script: |
+      $config = Get-Content "appSettings.json" -Raw|ConvertFrom-Json
+      
+      $config.FileFolderPath = "$(Agent.TempDirectory)/TestFiles"
+      
+      $config|ConvertTo-Json |Set-Content "appSettings.json"
+    workingDirectory: '$(Build.SourcesDirectory)/FileTests.Test/bin/$(buildConfiguration)/net8.0'
+
+- script: dotnet exec FileTests.Test.dll --filter-query "/[(TestType=UnitTesting)&(Package=$(deliveryPackageNumber))]" --report-xunit --report-xunit-filename "TestsResults.xml" --stop-on-fail off --parallel none --diagnostic --hangdump --hangdump-timeout 5m --culture "pt-BR" --max-threads 1
+  condition: eq(variables['executeUnitTest'], 'True')
+  displayName: 'Run Tests'
+  workingDirectory: '$(Build.SourcesDirectory)/FileTests.Test/bin/$(buildConfiguration)/net8.0'
+  continueOnError: true
+  env:
+    FileFolderPath: $(Agent.TempDirectory)/TestFiles
+    ASPNETCORE_ENVIRONMENT: Production
+    LANG: pt_BR.UTF-8
+    LANGUAGE: pt_BR:pt
+    LC_ALL: pt_BR.UTF-8
+    DB2_CLI_DRIVER_INSTALL_PATH: $(Build.SourcesDirectory)/FileTests.Test/bin/$(buildConfiguration)/net8.0/clidriver
+    LD_LIBRARY_PATH: $(Build.SourcesDirectory)/FileTests.Test/bin/$(buildConfiguration)/net8.0/clidriver/lib:$(Build.SourcesDirectory)/FileTests.Test/bin/$(buildConfiguration)/net8.0/clidriver/lib/icc
+
+- task: PublishTestResults@2
+  displayName: 'Publish Tests Results'
+  condition: eq(variables['executeUnitTest'], 'True')
+  inputs:
+    testResultsFormat: 'XUnit'
+    testResultsFiles: '**/TestsResults.xml'
+    searchFolder: '$(Build.SourcesDirectory)/FileTests.Test/bin/$(buildConfiguration)/net8.0'
+    failTaskOnFailedTests: true
+    failTaskOnFailureToPublishResults: true
+    failTaskOnMissingResultsFile: true
+    testRunTitle: 'SIAS-Batch - Unit Testing - Package $(deliveryPackageNumber)'
+    buildPlatform: '$(buildPlatform)'
+    buildConfiguration: '$(buildConfiguration)'

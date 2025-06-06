@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COUNT(*) FROM seguros.v1parcelasvg WHERE NUM_APOLICE = :NUM_APOLICE AND NRENDOS = :NRENDOS AND NRPARCEL < :NRPARCEL AND SITUACAO = '0' END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":NRENDOS", "Type": "string"}, {"Field": ":NRPARCEL", "Type": "string"}], "Outputs": [], "Endpoint": "cbaca/cbacp011b"}

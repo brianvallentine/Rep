@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT NUM_CARTA_REITERA\nFROM SEGUROS.GE_CARTA\n \nWHERE NUM_CARTA = :NUM_CARTA\n/\n END SQL", "Inputs": [{"Field": ":NUM_CARTA", "Type": "string"}], "Outputs": [{"Field": "NUM_CARTA_REITERA", "Type": "string"}], "Endpoint": "sipea/SIPEP016"}

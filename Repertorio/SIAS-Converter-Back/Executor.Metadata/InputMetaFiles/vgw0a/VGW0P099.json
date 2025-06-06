@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT data_referencia + 1 month FROM seguros.v0faturcont WHERE num_apolice = :NUM_APOLICE AND cod_subgrupo = :COD_SUBGRUPO END SQL", "Inputs": [":NUM_APOLICE", ":COD_SUBGRUPO"], "Outputs": ["data_referencia + 1 month"]}

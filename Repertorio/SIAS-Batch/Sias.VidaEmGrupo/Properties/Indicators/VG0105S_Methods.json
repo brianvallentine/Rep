@@ -1,0 +1,151 @@
+{
+  "QueryDescription": {
+    "Inserts": 0,
+    "Updates": 0,
+    "Deletes": 0,
+    "Selects": 1,
+    "Cursors": 0,
+    "Procedures": 0,
+    "All": 1
+  },
+  "MethodDescription": {
+    "ProgramName": "VG0105S",
+    "Quantity": 10,
+    "Methods": [
+      {
+        "EntraceMethod": false,
+        "Lines": 16,
+        "Name": "USING",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": true,
+        "Lines": 1,
+        "Name": "Execute",
+        "IgnoredMethod": false,
+        "Parameters": [
+          "IntBasis LK_NUM_PLANO_P",
+          "IntBasis LK_NUM_SERIE_P",
+          "IntBasis LK_NUM_TITULO_P",
+          "DoubleBasis LK_NUM_PROPOSTA_P",
+          "IntBasis LK_QTD_TITULOS_P",
+          "DoubleBasis LK_VLR_TITULO_P",
+          "IntBasis LK_EMP_PARCEIRA_P",
+          "IntBasis LK_COD_RAMO_P",
+          "StringBasis LK_COD_USUARIO_P",
+          "IntBasis LK_NUM_NSA_P",
+          "StringBasis LK_TRACE_P",
+          "IntBasis LK_OUT_COD_RETORNO_P",
+          "IntBasis LK_OUT_SQLCODE_P",
+          "StringBasis LK_OUT_MENSAGEM_P",
+          "StringBasis LK_OUT_SQLERRMC_P",
+          "StringBasis LK_OUT_SQLSTATE_P"
+        ],
+        "Obs": "",
+        "Calls": [
+          "P000_PRINCIPAL_SECTION"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 74,
+        "Name": "P000_PRINCIPAL_SECTION",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P010_RETORNA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 41,
+        "Name": "P0000_00_START",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "USING",
+          "P010_RETORNA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "P000_PRINCIPAL_SAIDA",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 68,
+        "Name": "R0100_VALIDA_STA_RENOVACAO_SECTION",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": [
+          "P0000_00_START",
+          "P010_RETORNA"
+        ]
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "R0100_VALIDA_STA_RENOVACAO_DB_SELECT_1",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 1,
+        "Name": "R0100_99_SAIDA",
+        "IgnoredMethod": true,
+        "Parameters": [],
+        "Obs": "Método ignorado por falta de comandos",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 36,
+        "Name": "P010_RETORNA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      },
+      {
+        "EntraceMethod": false,
+        "Lines": 0,
+        "Name": "P010_SAIDA",
+        "IgnoredMethod": false,
+        "Parameters": [],
+        "Obs": "",
+        "Calls": []
+      }
+    ]
+  },
+  "CopyDescription": {
+    "Quantity": 2,
+    "Names": [
+      "SPVG013W",
+      "LBHCT002"
+    ]
+  },
+  "DclDescription": {
+    "Quantity": 1,
+    "Names": [
+      "VG135"
+    ]
+  },
+  "FilesDescription": {
+    "Quantity": 0,
+    "Names": []
+  }
+}

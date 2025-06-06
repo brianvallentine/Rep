@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT DESCORIGEM, NUMCTA FROM seguros.v1origaviso WHERE ORIGAVISO = :ORIGAVISO AND COD_EMPRESA = 0 END SQL", "Inputs": [{"Field": ":ORIGAVISO", "Type": "string"}], "Outputs": [{"Field": "DESCORIGEM", "Type": "string"}, {"Field": "NUMCTA", "Type": "string"}], "Endpoint": "cb1ca/cb1cp10"}

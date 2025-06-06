@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT COD_RAMO FROM seguros.v0bilhete_faixa WHERE NUMBIL_INI <= :NUMBIL_INI AND NUMBIL_FIM >= :NUMBIL_INI END SQL", "Inputs": [{"Field": ":NUMBIL_INI", "Type": "string"}, {"Field": ":NUMBIL_FIM", "Type": "string"}], "Outputs": [{"Field": "COD_RAMO", "Type": "string"}], "Endpoint": "cbaga/cbagp088"}

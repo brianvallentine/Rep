@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT NRCERTIF, VALUE(NUM_CARTAO_CREDITO,'                ') FROM seguros.v0opcaopagva WHERE NRCERTIF = :NRCERTIF AND DTTERVIG = '9999-12-31' END SQL", "Inputs": [":NRCERTIF"], "Outputs": ["NRCERTIF", "VALUE(NUM_CARTAO_CREDITO,'                ')"]}

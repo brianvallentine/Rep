@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DATA_REFERENCIA\nFROM seguros.v1faturcont\n \nwhere\n  num_apolice = :NUM_APOLICE and cod_subgrupo = :COD_SUBGRUPO\n/\n END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":COD_SUBGRUPO", "Type": "string"}], "Outputs": [{"Field": "DATA_REFERENCIA", "Type": "string"}], "Endpoint": "vgoma/VGOMP019"}

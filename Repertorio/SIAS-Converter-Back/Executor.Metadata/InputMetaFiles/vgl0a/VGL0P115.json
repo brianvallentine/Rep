@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT ESTR_EMISS\nFROM seguros.v0produtosvg\n \nWHERE NUM_APOLICE = :NUM_APOLICE\nAND   CODSUBES    = :CODSUBES\nAND   orig_produ not in ('ESPEC','EMPRE')\n/\n END SQL", "Inputs": [{"Field": ":NUM_APOLICE", "Type": "string"}, {"Field": ":CODSUBES", "Type": "string"}], "Outputs": [{"Field": "ESTR_EMISS", "Type": "string"}], "Endpoint": "vgl0a/VGL0P115"}

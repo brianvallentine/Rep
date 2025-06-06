@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT COD_EVENTO\nFROM SEGUROS.SI_EVENTO_TIPO\n \nWHERE COD_TIPO_CARTA = :COD_TIPO_CARTA\n/\n END SQL", "Inputs": [{"Field": ":COD_TIPO_CARTA", "Type": "string"}], "Outputs": [{"Field": "COD_EVENTO", "Type": "string"}], "Endpoint": "si1ja/SI1JP032A"}

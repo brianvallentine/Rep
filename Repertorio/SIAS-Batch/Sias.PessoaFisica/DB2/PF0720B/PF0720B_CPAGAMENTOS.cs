@@ -1,0 +1,72 @@
+using System;
+using IA_ConverterCommons;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+using System.Linq;
+using _ = IA_ConverterCommons.Statements;
+using DB = IA_ConverterCommons.DatabaseBasis;
+
+namespace Sias.PessoaFisica.DB2.PF0720B
+{
+    public class PF0720B_CPAGAMENTOS : QueryBasis<PF0720B_CPAGAMENTOS>
+    {
+        [JsonIgnore] public bool JustACursor { get; set; } = false;
+
+        public delegate string GetQueryDelegateHandler();
+        public event GetQueryDelegateHandler GetQueryEvent;
+
+        //ESTE CONSTRUTOR NÃO DEVE SER USADO ( CUIDADO )
+        public PF0720B_CPAGAMENTOS() { IsCursor = true; }
+
+        public PF0720B_CPAGAMENTOS(bool justACursor)
+        {
+            JustACursor = justACursor;
+            IsCursor = true;
+        }
+
+        public string HISCONPA_NUM_APOLICE { get; set; }
+        public string HISCONPA_COD_SUBGRUPO { get; set; }
+        public string HISCONPA_NUM_CERTIFICADO { get; set; }
+        public string HISCONPA_NUM_PARCELA { get; set; }
+        public string HISCONPA_OCORR_HISTORICO { get; set; }
+        public string HISCONPA_COD_OPERACAO { get; set; }
+
+        public new void Open()
+        {
+            if (!IsProcedure)
+                SetQuery(GetQueryEvent());
+            base.Open();
+        }
+
+
+        public new bool Fetch()
+        {
+            if (!JustACursor)
+            {
+                var idx = CurrentIndex;
+                Open();
+                CurrentIndex = idx > -1 ? idx : 0;
+            }
+
+            return base.Fetch();
+        }
+
+
+        public override PF0720B_CPAGAMENTOS OpenData(List<KeyValuePair<string, object>> result)
+        {
+            var dta = new PF0720B_CPAGAMENTOS();
+            var i = 0;
+
+            dta.HISCONPA_NUM_APOLICE = result[i++].Value?.ToString();
+            dta.HISCONPA_COD_SUBGRUPO = result[i++].Value?.ToString();
+            dta.HISCONPA_NUM_CERTIFICADO = result[i++].Value?.ToString();
+            dta.HISCONPA_NUM_PARCELA = result[i++].Value?.ToString();
+            dta.HISCONPA_OCORR_HISTORICO = result[i++].Value?.ToString();
+            dta.HISCONPA_COD_OPERACAO = result[i++].Value?.ToString();
+
+            return dta;
+        }
+
+    }
+}

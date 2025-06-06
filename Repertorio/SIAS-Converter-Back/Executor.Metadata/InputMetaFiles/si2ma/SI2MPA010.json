@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT CODUSUCOD_CO\nFROM SEGUROS.V0USU_FIL_SENHA\n \nWHERE CODUSU       =  :CODUSU\n  AND TIPO_FUNCAO  =  :TIPO_FUNCAO\n/\n END SQL", "Inputs": [{"Field": ":CODUSU", "Type": "string"}, {"Field": ":TIPO_FUNCAO", "Type": "string"}], "Outputs": [{"Field": "CODUSU", "Type": "string"}, {"Field": "COD_CO", "Type": "string"}], "Endpoint": "si2ma/SI2MPA010"}

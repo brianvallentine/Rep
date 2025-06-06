@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT cod_fonte, NUM_PROPOSTA FROM seguros.v1seguravg WHERE cod_fonte = :COD_FONTE AND num_proposta = :NUM_PROPOSTA END SQL", "Inputs": [{"Field": ":COD_FONTE", "Type": "string"}, {"Field": ":NUM_PROPOSTA", "Type": "string"}], "Outputs": [{"Field": "cod_fonte", "Type": "string"}, {"Field": "NUM_PROPOSTA", "Type": "string"}], "Endpoint": "vgmoa/vgmop008"}

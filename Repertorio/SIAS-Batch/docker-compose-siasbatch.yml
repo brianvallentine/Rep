@@ -1,0 +1,169 @@
+x-environment: &default-environment
+  DOTNET_RUNNING_IN_CONTAINER: true
+  DOTNET_SYSTEM_GLOBALIZATION_INVARIANT: false
+  LANG: pt_BR.UTF-8
+  LANGUAGE: pt_BR:pt
+  LC_ALL: pt_BR.UTF-8
+  DB2_CLI_DRIVER_INSTALL_PATH: /app/clidriver
+  LD_LIBRARY_PATH: /app/clidriver/lib:/app/clidriver/lib/icc
+  PATH: /app/clidriver/bin:/app/clidriver/lib:/app/clidriver/adm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+# - LD_DEBUG=all
+
+name: sias-batch
+services:
+  sinistro:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Sinistro"
+    image: sias-batch-sinistro:latest
+    container_name: sias-batch-sinistro
+    ports:
+     - 8001:8080
+    environment:
+     << : *default-environment
+    entrypoint: ["dotnet", "Sias.Sinistro.dll"]
+  cobranca:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Cobranca"
+    image: sias-batch-cobranca:latest
+    container_name: sias-batch-cobranca
+    ports:
+     - 8002:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.Cobranca.dll"]
+  geral:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Geral"
+    image: sias-batch-geral:latest
+    container_name: sias-batch-geral
+    ports:
+     - 8003:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.Geral.dll"]
+  outros:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Outros"
+    image: sias-batch-outros:latest
+    container_name: sias-batch-outros
+    ports:
+     - 8004:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.Outros.dll"]
+  pessoafisica:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.PessoaFisica"
+    image: sias-batch-pessoafisica:latest
+    container_name: sias-batch-pessoafisica
+    ports:
+     - 8005:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.PessoaFisica.dll"]
+  vidaazul:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.VidaAzul"
+    image: sias-batch-vidaazul:latest
+    container_name: sias-batch-vidaazul
+    ports:
+     - 8006:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.VidaAzul.dll"]
+  vidaemgrupo:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.VidaEmGrupo"
+    image: sias-batch-vidaemgrupo:latest
+    container_name: sias-batch-vidaemgrupo
+    ports:
+     - 8007:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.VidaEmGrupo.dll"]
+  loterico:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Loterico"
+    image: sias-batch-loterico:latest
+    container_name: sias-batch-loterico
+    ports:
+     - 8008:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.Loterico.dll"]
+  federalvida:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.FederalVida"
+    image: sias-batch-federalvida:latest
+    container_name: sias-batch-federalvida
+    ports:
+     - 8009:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.FederalVida.dll"]
+  bilhetes:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Bilhetes"
+    image: sias-batch-bilhetes:latest
+    container_name: sias-batch-bilhetes
+    ports:
+     - 8010:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.Bilhetes.dll"]
+  cosseguro:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Cosseguro"
+    image: sias-batch-cosseguro:latest
+    container_name: sias-batch-cosseguro
+    ports:
+     - 8011:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.Cosseguro.dll"]
+  emissao:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PROJECT_NAME: "Sias.Emissao"
+    image: sias-batch-emissao:latest
+    container_name: sias-batch-emissao
+    ports:
+     - 8012:8080
+    environment:
+      << : *default-environment
+    entrypoint: ["dotnet", "Sias.Emissao.dll"]

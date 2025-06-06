@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE SEGUROS.seguros.si_lvi_rodizio SET STA_REUTILIZACAO = 'S', DTH_ULTIMO_ENVIO = CURRENT TIMESTAMP WHERE LOCALCHAVE = :LOCALCHAVE AND COD_DESTINATARIO = :COD_DESTINATARIO END SQL", "Inputs": [{"Field": ":LOCALCHAVE", "Type": "string"}, {"Field": ":COD_DESTINATARIO", "Type": "string"}], "Outputs": [], "Endpoint": "sixda/sixdp038a"}

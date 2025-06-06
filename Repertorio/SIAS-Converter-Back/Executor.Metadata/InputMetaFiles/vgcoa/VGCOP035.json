@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL UPDATE seguros.v0endosso SET DATA_LIBERACAO = :DATA_LIBERACAO, timestamp = current timestamp WHERE num_apolice = :NUM_APOLICE AND nrendos = 0 END SQL", "Inputs": [{"Field": ":DATA_LIBERACAO", "Type": "string"}, {"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [], "Endpoint": "vgcoa/vgcop035"}

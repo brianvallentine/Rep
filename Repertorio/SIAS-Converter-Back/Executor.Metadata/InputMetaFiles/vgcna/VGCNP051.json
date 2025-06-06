@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL update seguros.v0apolice set codclien = :CODCLIEN, tpcosced = :TPCOSCED, timestamp = current timestamp where NUM_APOLICE = :NUM_APOLICE END SQL", "Inputs": [{"Field": ":CODCLIEN", "Type": "string"}, {"Field": ":TPCOSCED", "Type": "string"}, {"Field": ":NUM_APOLICE", "Type": "string"}], "Outputs": [], "Endpoint": "vgcna/vgcnp051"}

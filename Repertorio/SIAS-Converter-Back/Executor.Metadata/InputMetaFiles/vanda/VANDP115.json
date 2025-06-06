@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL  SELECT DTQITBCO, +, NUM_PRAZO_FINMONTHS\nFROM seguros.v0propostava\n \nWHERE NRCERTIF = :NRCERTIF\nWITH UR\n/\n END SQL", "Inputs": [{"Field": ":NRCERTIF", "Type": "string"}], "Outputs": [{"Field": "DTQITBCO", "Type": "string"}, {"Field": "NUM_PRAZO_FIN", "Type": "string"}, {"Field": "MONTHS", "Type": "string"}], "Endpoint": "vanda/VANDP115"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT VLCRUZAD FROM seguros.v1moeda WHERE CODUNIMO = :CODUNIMO AND DTINIVIG <= :DTINIVIG AND DTTERVIG >= :DTINIVIG END SQL", "Inputs": [{"Field": ":CODUNIMO", "Type": "string"}, {"Field": ":DTINIVIG", "Type": "string"}, {"Field": ":DTTERVIG", "Type": "string"}], "Outputs": [{"Field": "VLCRUZAD", "Type": "string"}], "Endpoint": "cb2ga/cb2gp084"}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT value(count(*),0), value(sum(VAL_OPERACAO),0) FROM seguros.v0sini_lanclote1 WHERE fonte = :FONTE AND num_lote = :NUM_LOTE END SQL", "Inputs": [":FONTE", ":NUM_LOTE"], "Outputs": ["value(count(*),0)", "value(sum(VAL_OPERACAO),0)"]}

@@ -1,0 +1,1 @@
+{"Code": "EXEC SQL SELECT CODSIS FROM seguros.v1estrutur WHERE codsis = :CODSIS AND subsis = :SUBSIS AND codgru > 0 AND subgru = 0 AND situacao = '0' END SQL", "Inputs": [{"Field": ":CODSIS", "Type": "string"}, {"Field": ":SUBSIS", "Type": "string"}], "Outputs": [{"Field": "CODSIS", "Type": "string"}], "Endpoint": "as92a/as92p360in"}
